@@ -308,4 +308,15 @@ public class LinkedListTest {
         Assert.assertEquals(list.head.next.next, node3);
         Assert.assertEquals(list.head.next.next.next, node4);
     }
+
+    @Test
+    public void insertAfterTestInsertInEmptyList() {
+        LinkedList list = new LinkedList();
+        Node node = new Node(1);
+
+        list.insertAfter(null, node);
+
+        Assert.assertEquals(list.head, node);
+        Assert.assertEquals(list.tail, node);
+    }
 }
