@@ -32,7 +32,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void findTest() {
+    public void findTestFindSomethingThatInLsit() {
         LinkedList list = new LinkedList();
         Node node1 = new Node(1);
         Node node2 = new Node(2);
@@ -47,6 +47,22 @@ public class LinkedListTest {
         Assert.assertEquals(list.find(1), node1);
         Assert.assertEquals(list.find(2), node2);
         Assert.assertEquals(list.find(3), node3);
+    }
+
+    @Test
+    public void findTestFindSomethingThatNotInLsit() {
+        LinkedList list = new LinkedList();
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(1);
+
+        list.addInTail(node1);
+        list.addInTail(node2);
+        list.addInTail(node3);
+        list.addInTail(node4);
+
+        Assert.assertEquals(list.find(5), null);
     }
 
     @Test
@@ -75,7 +91,22 @@ public class LinkedListTest {
     }
 
     @Test
-    public void removeTest1()
+    public void findAllTestFindSomethingThatNotInList() {
+        LinkedList list = new LinkedList();
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(1);
+        list.addInTail(node1);
+        list.addInTail(node2);
+        list.addInTail(node3);
+        list.addInTail(node4);
+
+        Assert.assertEquals(list.findAll(6), new ArrayList<Node>());
+        Assert.assertEquals(list.findAll(5), new ArrayList<Node>());
+    }
+    @Test
+    public void removeTestRemoveFromHead()
     {
         LinkedList list = new LinkedList();
         Node node1 = new Node(1);
@@ -93,10 +124,11 @@ public class LinkedListTest {
         Assert.assertEquals(list.head, node2);
         Assert.assertEquals(list.head.next, node3);
         Assert.assertEquals(list.head.next.next, node4);
+        Assert.assertEquals(list.tail, node4);
     }
 
     @Test
-    public void removeTest2()
+    public void removeTestRemoveFromMiddle()
     {
         LinkedList list = new LinkedList();
         Node node1 = new Node(1);
@@ -114,31 +146,30 @@ public class LinkedListTest {
         Assert.assertEquals(list.head, node1);
         Assert.assertEquals(list.head.next, node3);
         Assert.assertEquals(list.head.next.next, node4);
+        Assert.assertEquals(list.tail, node4);
     }
 
     @Test
-    public void removeTest3()
+    public void removeTestRemoveFromTail()
     {
         LinkedList list = new LinkedList();
         Node node1 = new Node(1);
         Node node2 = new Node(2);
         Node node3 = new Node(3);
-        Node node4 = new Node(1);
         list.addInTail(node1);
         list.addInTail(node2);
         list.addInTail(node3);
-        list.addInTail(node4);
 
         boolean ans = list.remove(3);
 
         Assert.assertEquals(ans, true);
         Assert.assertEquals(list.head, node1);
         Assert.assertEquals(list.head.next, node2);
-        Assert.assertEquals(list.head.next.next, node4);
+        Assert.assertEquals(list.tail, node2);
     }
 
     @Test
-    public void removeTest4()
+    public void removeTestRemoveTwoSameValues()
     {
         LinkedList list = new LinkedList();
         Node node1 = new Node(1);
@@ -157,6 +188,7 @@ public class LinkedListTest {
         Assert.assertEquals(ans2, true);
         Assert.assertEquals(list.head, node2);
         Assert.assertEquals(list.head.next, node3);
+        Assert.assertEquals(list.tail, node3);
     }
 
     @Test
@@ -179,6 +211,7 @@ public class LinkedListTest {
         Assert.assertEquals(list.head.next, node2);
         Assert.assertEquals(list.head.next.next, node3);
         Assert.assertEquals(list.head.next.next.next, node4);
+        Assert.assertEquals(list.tail, node4);
     }
 
     @Test
@@ -198,6 +231,7 @@ public class LinkedListTest {
 
         Assert.assertEquals(list.head, node2);
         Assert.assertEquals(list.head.next, node3);
+        Assert.assertEquals(list.tail, node3);
     }
 
     @Test
@@ -218,6 +252,7 @@ public class LinkedListTest {
         Assert.assertEquals(list.head, node1);
         Assert.assertEquals(list.head.next, node3);
         Assert.assertEquals(list.head.next.next, node4);
+        Assert.assertEquals(list.tail, node4);
     }
 
     @Test
@@ -239,6 +274,7 @@ public class LinkedListTest {
         Assert.assertEquals(list.head.next, node2);
         Assert.assertEquals(list.head.next.next, node3);
         Assert.assertEquals(list.head.next.next.next, node4);
+        Assert.assertEquals(list.tail, node4);
     }
 
     @Test
