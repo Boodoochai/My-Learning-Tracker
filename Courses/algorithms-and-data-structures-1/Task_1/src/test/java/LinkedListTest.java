@@ -242,7 +242,18 @@ public class LinkedListTest {
     }
 
     @Test
-    public void clearTest()
+    public void clearTestEmptyList()
+    {
+        LinkedList list = new LinkedList();
+
+        list.clear();
+
+        Assert.assertEquals(list.head, null);
+        Assert.assertEquals(list.tail, null);
+    }
+
+    @Test
+    public void clearTestNotEmptyList()
     {
         LinkedList list = new LinkedList();
         Node node1 = new Node(1);
@@ -272,7 +283,7 @@ public class LinkedListTest {
 
 
     @Test
-    public void countTest()
+    public void countTestNotEmptyList()
     {
         LinkedList list = new LinkedList();
         Node node1 = new Node(1);
@@ -290,7 +301,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void insertAfterTest()
+    public void insertAfterTestInsertInMiddleOfList()
     {
         LinkedList list = new LinkedList();
         Node node1 = new Node(1);
@@ -307,6 +318,39 @@ public class LinkedListTest {
         Assert.assertEquals(list.head.next, node2);
         Assert.assertEquals(list.head.next.next, node3);
         Assert.assertEquals(list.head.next.next.next, node4);
+        Assert.assertEquals(list.tail, node4);
+    }
+
+    @Test
+    public void insertAfterTestInsertInHeadOfNotEmptyList()
+    {
+        LinkedList list = new LinkedList();
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        list.addInTail(node2);
+
+        list.insertAfter(null, node1);
+
+        Assert.assertEquals(list.head, node1);
+        Assert.assertEquals(list.head.next, node2);
+        Assert.assertEquals(list.head.next.next, null);
+        Assert.assertEquals(list.tail, node2);
+    }
+
+    @Test
+    public void insertAfterTestInsertInTailOfNotEmptyList()
+    {
+        LinkedList list = new LinkedList();
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        list.addInTail(node1);
+
+        list.insertAfter(node1, node2);
+
+        Assert.assertEquals(list.head, node1);
+        Assert.assertEquals(list.head.next, node2);
+        Assert.assertEquals(list.head.next.next, null);
+        Assert.assertEquals(list.tail, node2);
     }
 
     @Test
