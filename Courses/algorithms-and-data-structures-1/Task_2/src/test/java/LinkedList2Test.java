@@ -559,7 +559,7 @@ public class LinkedList2Test
         list.removeAll(2);
 
         Assert.assertEquals(list.head, node1);
-        Assert.assertEquals(list.head.next.next, null);
+        Assert.assertEquals(list.head.next, null);
         Assert.assertEquals(list.tail, node1);
         Assert.assertEquals(list.tail.prev, null);
     }
