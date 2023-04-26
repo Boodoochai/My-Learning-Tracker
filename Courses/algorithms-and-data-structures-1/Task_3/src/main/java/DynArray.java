@@ -7,8 +7,7 @@ public class DynArray<T>
 
     public DynArray(Class clz)
     {
-        clazz = clz; // нужен для безопасного приведения типов
-        // new DynArray<Integer>(Integer.class);
+        clazz = clz;
 
         count = 0;
         makeArray(16);
@@ -16,10 +15,7 @@ public class DynArray<T>
 
     public void makeArray(int new_capacity)
     {
-        // array = (T[]) Array.newInstance(this.clazz, new_capacity);
-        // array = (T[]) java.lang.reflect.Array.newInstance(this.clazz, new_capacity);
-        // ваш код
-        T[] new_array = (T[]) new Object[new_capacity];
+        T[] new_array = (T[]) java.lang.reflect.Array.newInstance(this.clazz, new_capacity);
         for (int i = 0; i < this.count; i++) {
             new_array[i] = this.array[i];
         }
