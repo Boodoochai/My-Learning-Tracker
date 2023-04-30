@@ -26,6 +26,6 @@ public class Stack<T>
 
     public T peek()
     {
-        return data.peek();
+        return data.peekLast();
     }
 }

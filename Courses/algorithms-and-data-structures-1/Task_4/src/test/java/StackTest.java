@@ -88,6 +88,20 @@ public class StackTest {
     }
 
     @Test
+    public void peekTestFromNotEmptyStack2() {
+        Stack stack = new Stack<Integer>();
+        stack.push(1);
+        stack.push(2);
+
+        Integer res1 = (Integer)stack.peek();
+        Integer res2 = (Integer)stack.peek();
+
+        Assert.assertEquals(stack.data.size(), 2);
+        Assert.assertEquals(res1, Integer.valueOf(2));
+        Assert.assertEquals(res2, Integer.valueOf(2));
+    }
+
+    @Test
     public void sizeTestEmptyStack() {
         Stack stack = new Stack<Integer>();
 
