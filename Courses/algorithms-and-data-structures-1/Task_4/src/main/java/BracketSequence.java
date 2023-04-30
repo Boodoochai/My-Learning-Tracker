@@ -11,9 +11,6 @@ class BracketSequence {
                 return false;
             }
         }
-        if (stack.size() != 0) {
-            return false;
-        }
-        return true;
+        return stack.size() == 0;
     }
 }
