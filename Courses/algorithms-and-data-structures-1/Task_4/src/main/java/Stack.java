@@ -16,12 +16,12 @@ public class Stack<T>
 
     public T pop()
     {
-        return data.pollFirst();
+        return data.pollLast();
     }
 
     public void push(T val)
     {
-        data.push(val);
+        data.addLast(val);
     }
 
     public T peek()

@@ -23,9 +23,9 @@ public class StackTest {
         stack.push(3);
 
         Assert.assertEquals(stack.data.size(), 3);
-        Assert.assertEquals(stack.data.get(0), Integer.valueOf(3));
+        Assert.assertEquals(stack.data.get(0), Integer.valueOf(1));
         Assert.assertEquals(stack.data.get(1), Integer.valueOf(2));
-        Assert.assertEquals(stack.data.get(2), Integer.valueOf(1));
+        Assert.assertEquals(stack.data.get(2), Integer.valueOf(3));
     }
 
     @Test
