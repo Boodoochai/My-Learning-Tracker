@@ -19,12 +19,11 @@ public class StackQueue<T>
     public T dequeue()
     {
         if (stack1.empty()) {
-            if (stack2.empty())
-                return null;
-            while (!stack2.empty()) {
+            while (!stack2.empty())
                 stack1.push(stack2.pop());
-            }
         }
+        if (stack1.empty())
+            return null;
         return stack1.pop();
     }
 }
