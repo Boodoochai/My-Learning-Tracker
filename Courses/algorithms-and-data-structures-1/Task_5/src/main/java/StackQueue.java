@@ -13,19 +13,18 @@ public class StackQueue<T>
 
     public void enqueue(T item)
     {
-        while (!stack1.empty()) {
-            stack2.push(stack1.pop());
-        }
-        stack1.push(item);
-        while (!stack2.empty()) {
-            stack1.push(stack2.pop());
-        }
+        stack2.push(item);
     }
 
     public T dequeue()
     {
-        if (stack1.empty())
-            return null;
+        if (stack1.empty()) {
+            if (stack2.empty())
+                return null;
+            while (!stack2.empty()) {
+                stack1.push(stack2.pop());
+            }
+        }
         return stack1.pop();
     }
 }
