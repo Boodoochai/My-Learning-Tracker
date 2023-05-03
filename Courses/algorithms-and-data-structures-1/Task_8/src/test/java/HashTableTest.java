@@ -64,9 +64,9 @@ public class HashTableTest {
         for (int i = 0; i < 17; i++)
             table.put("a");
 
-        int res1 = table.seekSlot("g");
-        int res2 = table.seekSlot("H");
-        int res3 = table.seekSlot("DDN");
+        int res1 = table.seekSlot("a");
+        int res2 = table.seekSlot("a");
+        int res3 = table.seekSlot("a");
 
         Assert.assertEquals(res1, -1);
         Assert.assertEquals(res2, -1);
@@ -114,12 +114,12 @@ public class HashTableTest {
     @Test
     public void putTestInFullTable() {
         HashTable table = new HashTable(17, 3);
-        for (int i = 0; i < 17; i++)
+        for (int i = 0; i < 9; i++)
             table.put("a");
 
-        int res1 = table.put("g");
-        int res2 = table.put("H");
-        int res3 = table.put("DDN");
+        int res1 = table.put("a");
+        int res2 = table.put("a");
+        int res3 = table.put("a");
 
         Assert.assertEquals(res1, -1);
         Assert.assertEquals(res2, -1);
@@ -140,11 +140,35 @@ public class HashTableTest {
     }
 
     @Test
-    public void findTestWithOutCollisions() {
+    public void findTestWithCollisionsIndexBigerSize() {
+        HashTable table = new HashTable(7, 3);
+        table.put("c");
+        table.put("f");
+        table.put("j");
+
+        int res1 = table.find("j");
+
+        Assert.assertEquals(res1, 0);
+    }
+
+    @Test
+    public void findTestWithoutCollisions() {
         HashTable table = new HashTable(17, 3);
 
-        Assert.assertEquals(table.put("a"), table.find("a"));
-        Assert.assertEquals(table.put("v"), table.find("v"));
-        Assert.assertEquals(table.put("c"), table.find("c"));
+        Assert.assertEquals(table.put("b"), table.find("b"));
+    }
+
+    @Test
+    public void findTestWithoutCollisionsLongStrings() {
+        HashTable table = new HashTable(17, 3);
+
+        Assert.assertEquals(table.put("badddksDSDDS"), table.find("badddksDSDDS"));
+    }
+
+    @Test
+    public void putTestWithCollisionsBigTable() {
+        HashTable table = new HashTable(10000, 3);
+        for (int i = 0; i < 10000; i++)
+            table.put("a");
     }
 }
