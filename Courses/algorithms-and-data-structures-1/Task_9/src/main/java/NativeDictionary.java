@@ -12,24 +12,43 @@ class NativeDictionary<T> {
     }
 
     public int hashFun(String key) {
-        // всегда возвращает корректный индекс слота
-        return 0;
+        int sum = 0;
+        for (char c: key.toCharArray())
+            sum = (sum + c) % size;
+        return sum;
     }
 
     public boolean isKey(String key) {
-        // возвращает true если ключ имеется,
-        // иначе false
-        return false;
+        int hash = hashFun(key);
+        int slot = hash;
+        while (!key.equals(slots[slot])) {
+            slot = (slot + 1) % size;
+            if (slots[slot] == null || slot == hash) 
+                return false;
+        }
+        return true;
     }
 
     public void put(String key, T value) {
-        // гарантированно записываем
-        // значение value по ключу key
+        int hash = hashFun(key);
+        int slot = hash;
+        while (slots[slot] != null && !key.equals(slots[slot])) {
+            slot = (slot + 1) % size;
+            if (slot == hash)
+                return;
+        }
+        slots[slot] = key;
+        values[slot] = value;
     }
 
     public T get(String key) {
-        // возвращает value для key,
-        // или null если ключ не найден
-        return null;
+        int hash = hashFun(key);
+        int slot = hash;
+        while (!key.equals(slots[slot])) {
+            slot = (slot + 1) % size;
+            if (slots[slot] == null || slot == hash)
+                return null;
+        }
+        return values[slot];
     }
 }
