@@ -1,50 +1,63 @@
 public class PowerSet
 {
+  private java.util.ArrayList<String> data;
+
   public PowerSet() {
-     // ваша реализация хранилища
+    data = new java.util.ArrayList<String>(20_000);
   }
 
   public int size() {
-        // количество элементов в множестве
-        return 0;
+    return data.size();
   }
 
 
   public void put(String value) {
-      // всегда срабатывает
+    for (String x : data)
+      if (x.equals(value))
+        return;
+    data.add(value);
   }
 
   public boolean get(String value) {
-        // возвращает true если value имеется в множестве,
-        // иначе false
-        return false;
+    for (String x : data)
+      if (x.equals(value))
+        return true;
+    return false;
   }
 
   public boolean remove(String value) {
-        // возвращает true если value удалено
-        // иначе false
-        return false;
+    return data.remove(value);
   }
 
   public PowerSet intersection(PowerSet set2) {
-        // пересечение текущего множества и set2
-        return null;
+    PowerSet intersection = new PowerSet();
+    for (String x: data)
+      if (set2.get(x))
+        intersection.put(x);
+    return intersection;
   }
 
   public PowerSet union(PowerSet set2) {
-        // объединение текущего множества и set2
-        return null;
+    PowerSet union = new PowerSet();
+    for (String x: data)
+      union.put(x);
+    for (String x: set2.data)
+      union.put(x);
+    return union;
   }
 
   public PowerSet difference(PowerSet set2) {
-        // разница текущего множества и set2
-        return null;
+    PowerSet diff = new PowerSet();
+    for (String x: data)
+      diff.put(x);
+    for (String x: set2.data)
+      diff.remove(x);
+    return diff;
   }
 
   public boolean isSubset(PowerSet set2) {
-        // возвращает true, если set2 есть
-        // подмножество текущего множества,
-        // иначе false
-        return false;
+    if (set2.difference(this).size() == 0)
+      return true;
+    return false;
   }
 }

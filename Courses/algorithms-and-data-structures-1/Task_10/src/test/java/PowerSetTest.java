@@ -357,7 +357,7 @@ public class PowerSetTest {
     Assert.assertEquals(res1.size(), 3);
     Assert.assertEquals(res1.get("a"), true);
     Assert.assertEquals(res1.get("gh"), true);
-    Assert.assertEquals(res1.get("c"), true);
+    Assert.assertEquals(res1.get("1"), true);
     Assert.assertEquals(res2.size(), 3);
     Assert.assertEquals(res2.get("a"), true);
     Assert.assertEquals(res2.get("1"), true);
@@ -378,7 +378,7 @@ public class PowerSetTest {
     Assert.assertEquals(res1.size(), 3);
     Assert.assertEquals(res1.get("a"), true);
     Assert.assertEquals(res1.get("gh"), true);
-    Assert.assertEquals(res1.get("c"), true);
+    Assert.assertEquals(res1.get("1"), true);
     Assert.assertEquals(res2.size(), 3);
     Assert.assertEquals(res2.get("a"), true);
     Assert.assertEquals(res2.get("1"), true);
@@ -461,7 +461,7 @@ public class PowerSetTest {
   public void differenceTestEqualsNotEmptySets() {
     PowerSet set1 = new PowerSet();
     PowerSet set2 = new PowerSet();
-    set1.put("a");
+    set1.put("b");
     set1.put("b");
     set2.put("b");
     set2.put("b");
@@ -547,5 +547,38 @@ public class PowerSetTest {
 
     Assert.assertEquals(res1, true);
     Assert.assertEquals(res2, false);
+  }
+
+  @Test(timeout=1000)
+  public void putTimeTest()
+  {
+    PowerSet set = new PowerSet();
+    for (int i = 0; i < 10_000; i++) {
+      set.put("abc");
+    }
+  }
+
+  @Test(timeout=1000)
+  public void getTimeTest()
+  {
+    PowerSet set = new PowerSet();
+    for (int i = 0; i < 10_000; i++) {
+      set.put("abc");
+    }
+    for (int i = 0; i < 10_000; i++) {
+      set.get("abc");
+    }
+  }
+  
+  @Test(timeout=1000)
+  public void removeTimeTest()
+  {
+    PowerSet set = new PowerSet();
+    for (int i = 0; i < 20_000; i++) {
+      set.put("abc");
+    }
+    for (int i = 0; i < 20_000; i++) {
+      set.remove("abc");
+    }
   }
 }
