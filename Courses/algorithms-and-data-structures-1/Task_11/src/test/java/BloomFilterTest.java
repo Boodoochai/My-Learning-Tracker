@@ -25,7 +25,16 @@ public class BloomFilterTest {
   }
 
   @Test
-  public void isValueTest() {
+  public void isValueTestOneValue() {
+    BloomFilter filter = new BloomFilter(32);
+
+    filter.add("0123456789");
+
+    Assert.assertTrue(filter.isValue("0123456789"));
+  }
+
+  @Test
+  public void isValueTestManyValues() {
     BloomFilter filter = new BloomFilter(32);
 
     filter.add("0123456789");
