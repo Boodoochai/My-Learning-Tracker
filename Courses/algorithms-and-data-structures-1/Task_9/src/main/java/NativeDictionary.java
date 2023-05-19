@@ -2,8 +2,8 @@ import java.lang.reflect.Array;
 
 class NativeDictionary<T> {
     public int size;
-    public String [] slots;
-    public T [] values;
+    public String[] slots;
+    public T[] values;
 
     public NativeDictionary(int sz, Class clazz) {
         size = sz;
@@ -13,7 +13,7 @@ class NativeDictionary<T> {
 
     public int hashFun(String key) {
         int sum = 0;
-        for (char c: key.toCharArray())
+        for (char c : key.toCharArray())
             sum = (sum + c) % size;
         return sum;
     }
@@ -23,7 +23,7 @@ class NativeDictionary<T> {
         int slot = hash;
         while (!key.equals(slots[slot])) {
             slot = (slot + 1) % size;
-            if (slots[slot] == null || slot == hash) 
+            if (slots[slot] == null || slot == hash)
                 return false;
         }
         return true;
