@@ -1,7 +1,7 @@
 public class HashTable {
     public int size;
     public int step;
-    public String [] slots;
+    public String[] slots;
 
     public HashTable(int sz, int stp) {
         size = sz;

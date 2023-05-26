@@ -1,26 +1,21 @@
-import java.util.*;
+import java.util.LinkedList;
 
-public class Queue<T>
-{
+public class Queue<T> {
     public LinkedList<T> data;
 
-    public Queue()
-    {
+    public Queue() {
         data = new LinkedList<T>();
     }
 
-    public void enqueue(T item)
-    {
+    public void enqueue(T item) {
         data.addFirst(item);
     }
 
-    public T dequeue()
-    {
+    public T dequeue() {
         return data.pollLast();
     }
 
-    public int size()
-    {
+    public int size() {
         return data.size();
     }
 }

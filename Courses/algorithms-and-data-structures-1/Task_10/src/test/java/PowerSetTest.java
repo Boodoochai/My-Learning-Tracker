@@ -65,7 +65,7 @@ public class PowerSetTest {
     Assert.assertEquals(set.size(), 1);
     Assert.assertEquals(set.get("a"), true);
   }
-  
+
   @Test
   public void putTestInNotEmptySetExistedElement() {
     PowerSet set = new PowerSet();
@@ -498,7 +498,7 @@ public class PowerSetTest {
     Assert.assertEquals(res1, true);
     Assert.assertEquals(res2, false);
   }
-  
+
   @Test
   public void isSubsetTestNotEmptyWithoutSameElements() {
     PowerSet set1 = new PowerSet();
@@ -549,18 +549,16 @@ public class PowerSetTest {
     Assert.assertEquals(res2, false);
   }
 
-  @Test(timeout=1000)
-  public void putTimeTest()
-  {
+  @Test(timeout = 1000)
+  public void putTimeTest() {
     PowerSet set = new PowerSet();
     for (int i = 0; i < 10_000; i++) {
       set.put("abc");
     }
   }
 
-  @Test(timeout=1000)
-  public void getTimeTest()
-  {
+  @Test(timeout = 1000)
+  public void getTimeTest() {
     PowerSet set = new PowerSet();
     for (int i = 0; i < 10_000; i++) {
       set.put("abc");
@@ -569,10 +567,9 @@ public class PowerSetTest {
       set.get("abc");
     }
   }
-  
-  @Test(timeout=1000)
-  public void removeTimeTest()
-  {
+
+  @Test(timeout = 1000)
+  public void removeTimeTest() {
     PowerSet set = new PowerSet();
     for (int i = 0; i < 20_000; i++) {
       set.put("abc");

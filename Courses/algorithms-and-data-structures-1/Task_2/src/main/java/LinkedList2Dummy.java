@@ -1,30 +1,24 @@
-package LinkedList2Dummy;
-
 import java.util.*;
 
-public class LinkedList2Dummy
-{
+public class LinkedList2Dummy {
     public Node head;
     public Node tail;
 
-    public LinkedList2Dummy()
-    {
+    public LinkedList2Dummy() {
         head = new Node(1);
         tail = new Node(1);
         head.next = tail;
         tail.prev = head;
     }
 
-    public void addInTail(Node _item)
-    {
+    public void addInTail(Node _item) {
         _item.prev = this.tail.prev;
         _item.next = this.tail;
         this.tail.prev.next = _item;
         this.tail.prev = _item;
     }
 
-    public Node find(int _value)
-    {
+    public Node find(int _value) {
         Node node = this.head.next;
         while (node.next != null) {
             if (node.value == _value) {
@@ -35,8 +29,7 @@ public class LinkedList2Dummy
         return null;
     }
 
-    public ArrayList<Node> findAll(int _value)
-    {
+    public ArrayList<Node> findAll(int _value) {
         ArrayList<Node> nodes = new ArrayList<Node>();
         Node node = this.head.next;
         while (node.next != null) {
@@ -48,8 +41,7 @@ public class LinkedList2Dummy
         return nodes;
     }
 
-    public boolean remove(int _value)
-    {
+    public boolean remove(int _value) {
         Node node = this.head.next;
         while (node.next != null) {
             if (node.value == _value) {
@@ -62,8 +54,7 @@ public class LinkedList2Dummy
         return false;
     }
 
-    public void removeAll(int _value)
-    {
+    public void removeAll(int _value) {
         Node node = this.head.next;
         while (node.next != null) {
             if (node.value == _value) {
@@ -74,14 +65,12 @@ public class LinkedList2Dummy
         }
     }
 
-    public void clear()
-    {
+    public void clear() {
         this.head.next = this.tail;
         this.tail.prev = this.head;
     }
 
-    public int count()
-    {
+    public int count() {
         int size = 0;
         Node node = this.head.next;
         while (node.next != null) {
@@ -91,8 +80,7 @@ public class LinkedList2Dummy
         return size;
     }
 
-    public void insertAfter(Node _nodeAfter, Node _nodeToInsert)
-    {
+    public void insertAfter(Node _nodeAfter, Node _nodeToInsert) {
         if (_nodeAfter == null) {
             _nodeToInsert.next = this.head.next;
             _nodeToInsert.prev = this.head;
@@ -107,14 +95,12 @@ public class LinkedList2Dummy
     }
 }
 
-class Node
-{
+class Node {
     public int value;
     public Node next;
     public Node prev;
 
-    public Node(int _value)
-    {
+    public Node(int _value) {
         value = _value;
         next = null;
         prev = null;

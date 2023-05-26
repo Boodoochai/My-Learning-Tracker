@@ -121,7 +121,6 @@ public class DynArrayTest {
         arr.getItem(5);
     }
 
-
     @Test
     public void appendTestAppendInEmptyList() {
         DynArray<Integer> arr = new DynArray<Integer>(Integer.class);
@@ -159,7 +158,6 @@ public class DynArrayTest {
         Assert.assertEquals(arr.count, 17);
         Assert.assertArrayEquals(arr.array, ans);
     }
-
 
     @Test
     public void insertTestInsertInExistIndex() {
@@ -330,7 +328,7 @@ public class DynArrayTest {
 
         Assert.assertEquals(arr.capacity, 16);
         Assert.assertEquals(arr.count, 4);
-        Assert.assertEquals(arr.array, ans);
+        Assert.assertArrayEquals(arr.array, ans);
     }
 
     @Test
@@ -364,7 +362,7 @@ public class DynArrayTest {
         for (int i = 0; i < 42; i++) {
             ans[i] = Integer.valueOf(1);
         }
-    for (int i = 42; i < 56; i++) {
+        for (int i = 42; i < 56; i++) {
             ans[i] = null;
         }
 
@@ -376,7 +374,6 @@ public class DynArrayTest {
         Assert.assertEquals(arr.count, 42);
         Assert.assertArrayEquals(arr.array, ans);
     }
-
 
     @Test
     public void removeTestRemoveWithReallocationLower16() {

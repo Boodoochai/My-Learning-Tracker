@@ -1,5 +1,4 @@
-public class PowerSet
-{
+public class PowerSet {
   private java.util.ArrayList<String> data;
 
   public PowerSet() {
@@ -9,7 +8,6 @@ public class PowerSet
   public int size() {
     return data.size();
   }
-
 
   public void put(String value) {
     for (String x : data)
@@ -31,7 +29,7 @@ public class PowerSet
 
   public PowerSet intersection(PowerSet set2) {
     PowerSet intersection = new PowerSet();
-    for (String x: data)
+    for (String x : data)
       if (set2.get(x))
         intersection.put(x);
     return intersection;
@@ -39,18 +37,18 @@ public class PowerSet
 
   public PowerSet union(PowerSet set2) {
     PowerSet union = new PowerSet();
-    for (String x: data)
+    for (String x : data)
       union.put(x);
-    for (String x: set2.data)
+    for (String x : set2.data)
       union.put(x);
     return union;
   }
 
   public PowerSet difference(PowerSet set2) {
     PowerSet diff = new PowerSet();
-    for (String x: data)
+    for (String x : data)
       diff.put(x);
-    for (String x: set2.data)
+    for (String x : set2.data)
       diff.remove(x);
     return diff;
   }

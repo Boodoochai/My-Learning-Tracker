@@ -8,14 +8,14 @@ class ExpressionSolver {
             } else {
                 Integer a = stack.pop();
                 Integer b = stack.pop();
-                switch (sym){
+                switch (sym) {
                     case "=":
                         return a;
                     case "+":
-                        stack.push(a+b);
+                        stack.push(a + b);
                         break;
                     case "*":
-                        stack.push(a*b);
+                        stack.push(a * b);
                         break;
                 }
             }

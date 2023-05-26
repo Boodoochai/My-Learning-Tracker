@@ -4,7 +4,7 @@ import org.junit.Test;
 public class NativeCacheTest {
   @Test
   public void putTestInEmptyCahe() {
-    NativeCache<String> cache = new NativeCache(32, String.class);
+    NativeCache<String> cache = new NativeCache<String>(32, String.class);
 
     cache.put("123", "qwe");
 
@@ -13,7 +13,7 @@ public class NativeCacheTest {
 
   @Test
   public void putTestInNotEmptyCahe() {
-    NativeCache<String> cache = new NativeCache(32, String.class);
+    NativeCache<String> cache = new NativeCache<String>(32, String.class);
 
     cache.put("123", "qwe");
     cache.put("1234", "qwe");
@@ -28,7 +28,7 @@ public class NativeCacheTest {
 
   @Test
   public void putTestOverrideValue() {
-    NativeCache<String> cache = new NativeCache(32, String.class);
+    NativeCache<String> cache = new NativeCache<String>(32, String.class);
 
     cache.put("123", "qwe");
     cache.put("123", "fds");
@@ -38,7 +38,7 @@ public class NativeCacheTest {
 
   @Test
   public void putTestInFullCache() {
-    NativeCache<String> cache = new NativeCache(5, String.class);
+    NativeCache<String> cache = new NativeCache<String>(5, String.class);
 
     cache.put("1", "qwe");
     cache.put("12", "qwe");
@@ -63,7 +63,7 @@ public class NativeCacheTest {
 
   @Test
   public void putTestInFullCache2() {
-    NativeCache<String> cache = new NativeCache(5, String.class);
+    NativeCache<String> cache = new NativeCache<String>(5, String.class);
 
     cache.put("1", "qwe");
     cache.put("12", "qwe");
@@ -88,7 +88,7 @@ public class NativeCacheTest {
 
   @Test
   public void isKeyTestInEmptyCache() {
-    NativeCache<String> cache = new NativeCache(5, String.class);
+    NativeCache<String> cache = new NativeCache<String>(5, String.class);
 
     Assert.assertFalse(cache.isKey("123"));
     Assert.assertFalse(cache.isKey("a"));
@@ -98,7 +98,7 @@ public class NativeCacheTest {
 
   @Test
   public void isKeyTestInNotEmptyCacheNotExistKey() {
-    NativeCache<String> cache = new NativeCache(5, String.class);
+    NativeCache<String> cache = new NativeCache<String>(5, String.class);
 
     cache.put("1", "qwe");
     cache.put("2", "qwe");
@@ -112,7 +112,7 @@ public class NativeCacheTest {
 
   @Test
   public void isKeyTestInNotEmptyCacheExistKey() {
-    NativeCache<String> cache = new NativeCache(5, String.class);
+    NativeCache<String> cache = new NativeCache<String>(5, String.class);
 
     cache.put("1", "qwe");
     cache.put("2", "qwe");
@@ -125,7 +125,7 @@ public class NativeCacheTest {
 
   @Test
   public void getTestInEmptyCache() {
-    NativeCache<String> cache = new NativeCache(5, String.class);
+    NativeCache<String> cache = new NativeCache<String>(5, String.class);
 
     Assert.assertEquals(cache.get("1ads"), null);
     Assert.assertEquals(cache.get("22"), null);
@@ -134,7 +134,7 @@ public class NativeCacheTest {
 
   @Test
   public void getTestInNotEmptyCacheNotExistKey() {
-    NativeCache<String> cache = new NativeCache(5, String.class);
+    NativeCache<String> cache = new NativeCache<String>(5, String.class);
 
     cache.put("1", "qwe");
     cache.put("2", "qw");
@@ -147,7 +147,7 @@ public class NativeCacheTest {
 
   @Test
   public void getTestInNotEmptyCacheExistKey() {
-    NativeCache<String> cache = new NativeCache(5, String.class);
+    NativeCache<String> cache = new NativeCache<String>(5, String.class);
 
     cache.put("1", "qwe");
     cache.put("2", "qw");

@@ -278,6 +278,7 @@ public class OrderedListTest {
         Assert.assertEquals(list.head, list.tail);
         Assert.assertEquals(list.tail, null);
     }
+
     @Test
     public void deleteTestListWithManyElementsFromHead() {
         OrderedList<Integer> list = new OrderedList<Integer>(true);

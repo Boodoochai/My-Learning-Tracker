@@ -1,36 +1,29 @@
-import java.util.*;
+import java.util.LinkedList;
 
-public class Deque<T>
-{
+public class Deque<T> {
     LinkedList<T> data;
 
-    public Deque()
-    {
+    public Deque() {
         data = new LinkedList<T>();
     }
 
-    public void addFront(T item)
-    {
+    public void addFront(T item) {
         data.addFirst(item);
     }
 
-    public void addTail(T item)
-    {
+    public void addTail(T item) {
         data.addLast(item);
     }
 
-    public T removeFront()
-    {
+    public T removeFront() {
         return data.pollFirst();
     }
 
-    public T removeTail()
-    {
+    public T removeTail() {
         return data.pollLast();
     }
 
-    public int size()
-    {
+    public int size() {
         return data.size();
     }
 }

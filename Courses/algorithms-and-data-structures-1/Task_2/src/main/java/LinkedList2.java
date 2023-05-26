@@ -1,18 +1,15 @@
 import java.util.*;
 
-public class LinkedList2
-{
+public class LinkedList2 {
     public Node head;
     public Node tail;
 
-    public LinkedList2()
-    {
+    public LinkedList2() {
         head = null;
         tail = null;
     }
 
-    public void addInTail(Node _item)
-    {
+    public void addInTail(Node _item) {
         if (head == null) {
             this.head = _item;
             this.head.next = null;
@@ -24,8 +21,7 @@ public class LinkedList2
         this.tail = _item;
     }
 
-    public Node find(int _value)
-    {
+    public Node find(int _value) {
         Node node = this.head;
         while (node != null) {
             if (node.value == _value) {
@@ -36,8 +32,7 @@ public class LinkedList2
         return null;
     }
 
-    public ArrayList<Node> findAll(int _value)
-    {
+    public ArrayList<Node> findAll(int _value) {
         ArrayList<Node> nodes = new ArrayList<Node>();
         Node node = this.head;
         while (node != null) {
@@ -49,8 +44,7 @@ public class LinkedList2
         return nodes;
     }
 
-    public boolean remove(int _value)
-    {
+    public boolean remove(int _value) {
         Node node = this.head;
         while (node != null) {
             if (node.value != _value) {
@@ -75,8 +69,7 @@ public class LinkedList2
         return false;
     }
 
-    public void removeAll(int _value)
-    {
+    public void removeAll(int _value) {
         Node node = this.head;
         while (node != null) {
             if (node.value != _value) {
@@ -103,14 +96,12 @@ public class LinkedList2
         }
     }
 
-    public void clear()
-    {
+    public void clear() {
         this.head = null;
         this.tail = null;
     }
 
-    public int count()
-    {
+    public int count() {
         int size = 0;
         Node node = this.head;
         while (node != null) {
@@ -120,8 +111,7 @@ public class LinkedList2
         return size;
     }
 
-    public void insertAfter(Node _nodeAfter, Node _nodeToInsert)
-    {
+    public void insertAfter(Node _nodeAfter, Node _nodeToInsert) {
         if (_nodeAfter == null && this.tail == null) {
             _nodeToInsert.next = null;
             _nodeToInsert.prev = null;
@@ -146,14 +136,12 @@ public class LinkedList2
     }
 }
 
-class Node
-{
+class Node {
     public int value;
     public Node next;
     public Node prev;
 
-    public Node(int _value)
-    {
+    public Node(int _value) {
         value = _value;
         next = null;
         prev = null;

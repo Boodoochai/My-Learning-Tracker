@@ -23,8 +23,8 @@ public class OrderedList<T> {
 
     public int compare(T v1, T v2) {
         if (v1 instanceof Comparable) {
-            Comparable n1 = (Comparable)v1;
-            Comparable n2 = (Comparable)v2;
+            Comparable n1 = (Comparable) v1;
+            Comparable n2 = (Comparable) v2;
             if (n1.compareTo(n2) < 0)
                 return -1;
             if (n1.compareTo(n2) > 0)
@@ -73,7 +73,7 @@ public class OrderedList<T> {
             if (node.value == val)
                 return node;
             if ((compare(node.value, val) == 1 && _ascending) ||
-                (compare(node.value, val) == -1 && !_ascending))
+                    (compare(node.value, val) == -1 && !_ascending))
                 return null;
             node = node.next;
         }
@@ -100,7 +100,7 @@ public class OrderedList<T> {
                 return;
             }
             if ((compare(node.value, val) == 1 && _ascending) ||
-                (compare(node.value, val) == -1 && !_ascending))
+                    (compare(node.value, val) == -1 && !_ascending))
                 return;
             node = node.next;
         }
@@ -125,8 +125,7 @@ public class OrderedList<T> {
     ArrayList<Node<T>> getAll() {
         ArrayList<Node<T>> r = new ArrayList<Node<T>>();
         Node<T> node = head;
-        while(node != null)
-        {
+        while (node != null) {
             r.add(node);
             node = node.next;
         }

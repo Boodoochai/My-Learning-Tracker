@@ -1,30 +1,24 @@
-package LinkedList2RealDummy;
+import java.util.ArrayList;
 
-import java.util.*;
-
-public class LinkedList2RealDummy
-{
+public class LinkedList2RealDummy {
     public Node head;
     public Node tail;
 
-    public LinkedList2RealDummy()
-    {
+    public LinkedList2RealDummy() {
         head = new Dummy();
         tail = head;
         head.next = tail;
         tail.prev = head;
     }
 
-    public void addInTail(Node _item)
-    {
+    public void addInTail(Node _item) {
         _item.prev = this.tail.prev;
         _item.next = this.tail;
         this.tail.prev.next = _item;
         this.tail.prev = _item;
     }
 
-    public Node find(int _value)
-    {
+    public Node find(int _value) {
         Node node = this.head.next;
         while (!node.is_dummy()) {
             if (node.value == _value) {
@@ -35,8 +29,7 @@ public class LinkedList2RealDummy
         return null;
     }
 
-    public ArrayList<Node> findAll(int _value)
-    {
+    public ArrayList<Node> findAll(int _value) {
         ArrayList<Node> nodes = new ArrayList<Node>();
         Node node = this.head.next;
         while (!node.is_dummy()) {
@@ -48,8 +41,7 @@ public class LinkedList2RealDummy
         return nodes;
     }
 
-    public boolean remove(int _value)
-    {
+    public boolean remove(int _value) {
         Node node = this.head.next;
         while (!node.is_dummy()) {
             if (node.value == _value) {
@@ -62,8 +54,7 @@ public class LinkedList2RealDummy
         return false;
     }
 
-    public void removeAll(int _value)
-    {
+    public void removeAll(int _value) {
         Node node = this.head.next;
         while (!node.is_dummy()) {
             if (node.value == _value) {
@@ -74,14 +65,12 @@ public class LinkedList2RealDummy
         }
     }
 
-    public void clear()
-    {
+    public void clear() {
         this.head.next = this.tail;
         this.tail.prev = this.head;
     }
 
-    public int count()
-    {
+    public int count() {
         int size = 0;
         Node node = this.head.next;
         while (!node.is_dummy()) {
@@ -91,8 +80,7 @@ public class LinkedList2RealDummy
         return size;
     }
 
-    public void insertAfter(Node _nodeAfter, Node _nodeToInsert)
-    {
+    public void insertAfter(Node _nodeAfter, Node _nodeToInsert) {
         if (_nodeAfter == null) {
             _nodeToInsert.next = this.head.next;
             _nodeToInsert.prev = this.head;
@@ -107,34 +95,28 @@ public class LinkedList2RealDummy
     }
 }
 
-class Node
-{
+class Node {
     public int value;
     public Node next;
     public Node prev;
 
-    public Node(int _value)
-    {
+    public Node(int _value) {
         value = _value;
         next = null;
         prev = null;
     }
 
-    public boolean is_dummy()
-    {
+    public boolean is_dummy() {
         return false;
     }
 }
 
-class Dummy extends Node
-{
-    public Dummy()
-    {
+class Dummy extends Node {
+    public Dummy() {
         super(0);
     }
 
-    public boolean is_dummy()
-    {
+    public boolean is_dummy() {
         return true;
     }
 }

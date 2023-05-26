@@ -12,7 +12,7 @@ public class NativeDictionaryTest {
     Assert.assertEquals(dict.isKey("dsgjlk"), false);
     Assert.assertEquals(dict.isKey("237881"), false);
   }
-  
+
   @Test
   public void isKeyTestExistKey() {
     NativeDictionary<Integer> dict = new NativeDictionary<Integer>(19, Integer.class);

@@ -1,31 +1,25 @@
 import java.util.*;
 
-public class StackInversed<T>
-{
+public class StackInversed<T> {
     public LinkedList<T> data;
 
-    public StackInversed()
-    {
+    public StackInversed() {
         data = new LinkedList<T>();
     }
 
-    public int size()
-    {
+    public int size() {
         return data.size();
     }
 
-    public T pop()
-    {
+    public T pop() {
         return data.pollFirst();
     }
 
-    public void push(T val)
-    {
+    public void push(T val) {
         data.push(val);
     }
 
-    public T peek()
-    {
+    public T peek() {
         return data.peek();
     }
 }
