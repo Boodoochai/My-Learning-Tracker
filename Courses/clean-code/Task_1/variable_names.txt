@@ -1,0 +1,35 @@
+dist - distanceFromStart (distance_from_start)
+// расстояние до точки из которой был выпущен луч
+
+сh - asciiSortedByBrightness (ascii_sorted_by_brightness)
+// массив ascii символов отсортированный по яркости
+
+dist - distanceToCollision (distance_to_collision)
+// расстояние до точки пересечения луча с объектом
+
+min_dist - distanceToNearestCollidablePoint (distance_to_nearest_collidable_point)
+// Растояния до ближайщей точки с которой возможно столкновение
+
+d_e - currentDistanceEstimator (current_distance_estimator)
+// объект который вычисляет растояние до объекта, которые перебираются в цикле
+
+change - positionChange (position_change)
+// вектор изменения позиции объекта
+
+from - startPoint (start_point)
+// Точка начала луча
+
+to - endPoint (end_point)
+// Точка конца луча
+
+arg1 - objectId (object_id)
+// идентификатор объекта
+
+R - majorRadius (major_radius)
+// радиус вращения образующей окружности тора
+
+r - minorRadius (minor_radius)
+// радиус образующей окружности тора
+
+arg1 - positionOnScreen (position_on_screen)
+// позиция окна на экране
