@@ -1,0 +1,58 @@
+6.1
+
+queue - nodesToVisit (nodes_to_visit)
+// Очередь в которй находятся номера вершин графа для обхода в ширину.
+
+set - visitedNodes (visited_nodes)
+// Множество уже посещённых вершин графа.
+
+character - bracket (bracket)
+// Символ скобочки
+
+arr - nodesColors (nodes_colors)
+// Масив, хранящий цвета вершин графа.
+
+c - listSize (list_size)
+// Размер списка
+
+6.2
+
+compositeObject (compositeObject)
+// Класс объекта реализованного с использованием паттерна компоновщик
+
+mazeBuilder (maze_builder)
+// Класс создающий лабиринт
+
+bipartiteGraph (bipartite_graph)
+// Двудольный граф
+
+children - childrenLinkedList (children_linked_list)
+// Список детей у вершины
+
+6.3
+
+color - objectColor (object_color)
+// Цвет объекта.
+
+position - cameraPosition (Camera_position)
+// Позици камеры.
+
+dir - rayDirection (ray_direction)
+// Направление луча
+
+6.4
+
+change - positionChange (position_change)
+// Вектор на который изменится положение объекта.
+
+pos - RayPosition (ray_position)
+// Позиция луча.
+
+compare - comparasionResult (comparasion_result)
+// Результат  сравнения
+
+arg - transferVector (transfer_vector)
+// Вектор на который надо переместить объект
+
+camera - mainCamera (main_camera)
+// Главная камера в сцене
