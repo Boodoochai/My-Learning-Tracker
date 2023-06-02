@@ -1,0 +1,46 @@
+7.1
+
+f - isBipartite (is_bipartite)
+// Является ли граф двудольным
+
+a - contains (contains)
+// Наличие числа в множестве
+
+e - isEmpty (is_empty)
+// Отсутсвие объектов в сцене
+
+notVisible - visible (visible)
+// Является ли объект видимым
+
+flag - isInitialized (is_initialized)
+// Инициализированна ли переменная хранящая максиммум
+
+7.2
+
+flag - found (found)
+
+doing - done (done)
+
+7.3
+
+i - raymarchStep (raymarch_step)
+// Количество сделанных во время рэймарчинга шагов
+
+7.4
+
+startNode & endNode (start_node & end_node)
+// Вершина графа с которой начинается обход и до которой он идёт
+
+previousNode & nextNode (previous_node & next_node)
+// Следующий и предыдущий элемент в списке
+
+7.5
+
+a - screenPosition (camera_screen_position)
+// Позиция экрана
+
+b - screenSize (screen_ize)
+// Размер экрана
+
+d_e - distanceEstimator (distance_estimator)
+// Объект измеряющий расстояние до тела
