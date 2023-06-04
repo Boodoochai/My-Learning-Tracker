@@ -1,0 +1,35 @@
+arg - positionChange (position_change)
+// Вектор изменения позиции
+
+change - positionChange (position_change)
+// Вектор изменения позиции
+
+obj - torus (torus)
+// Тор
+
+min - minDistance (min_distance)
+// Миниальное расстояние до объекта
+
+cur_obj_num - currentObjectInd (cur_obj_ind)
+// Индекс текущего объекта
+
+time - timeMilliseconds (time_milliseconds)
+// Время в миллисекундах
+
+graph - equationGraph (equation_graph)
+// Граф представляющий выражение
+
+map - numbersAmount (numbers_amount)
+// Количество чисел
+
+number - minNumber (min_number)
+// Минимальное число
+
+xor - xorResult (xor_result)
+// Результат нескольких операций исклюайщего или
+
+i - elementInd (element_ind)
+// Индекс элемента
+
+count - numberOfElements (number_of_elements)
+// Количество элементов
