@@ -1,0 +1,34 @@
+3.1.
+Render - Renderer
+
+ShapeObject - Shape
+
+SphereObject - Sphere
+
+PhysicsProcessor - PhysicsDirector
+
+SceneData - Scene
+
+
+3.2.
+
+ComplexObject - CompositeObject
+// Уже есть класс CompositeDistanceEstimator
+
+copy_to - copy
+// Уже есть метод copy у другого класса
+
+recive_position - get_position
+// Уже есть метод get_position у другого класса
+
+refresh_position - update_position
+// Уже есть метод update_position у другого класса
+
+translate - move
+// Уже есть метод move у другого класса
+
+calculate_distance - get_distance
+// Уже есть метод get_distance у другого класса
+
+normalize - normalized
+// Уже есть метод normalized у другого класса
