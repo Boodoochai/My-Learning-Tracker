@@ -1,0 +1,35 @@
+updatePosition - setPosition
+// Set new position.
+
+getDistance - getDistanceTo
+// Returnd distance to an object.
+
+draw - drawScene
+// Draws a scene.
+
+rayFromScreenCords - makeRayFromScreenCords
+// Makes a ray.
+
+translate - moveOn
+// Moves an object on a vector.
+
+normalize - normalized 
+// Returns new normalized vector.
+
+rayFromPoints - makeRayFromPoints
+// Makes a ray from two points.
+
+applyCollisions - handleCollisionsOn
+// Handles collisions on a scene.
+
+getTIme - getTimeMilliseconds
+// Returns time in milliseconds.
+
+bodyShape - makeBodyShape
+// Makes a shape for given body.
+
+realToCanvasPosition - translateRealPositionToCanvas
+// Translates real cords to canvas cords.
+
+canvasToRealPosition - translateCanvasPositionToReal
+// Tanslates canvas cords to real cords.
