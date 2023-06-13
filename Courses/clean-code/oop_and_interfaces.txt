@@ -1,0 +1,14 @@
+// 3.1
+
+Ray.fromPoints(Point start, Point end)
+// Creates ray from two points.
+
+Quaternion.fromRealNumberAndVector(double real, Vector3 imginary)
+// Creates quaternion from real number for real part and vector of 3 real numbers for imaginary part
+
+Complex.fromVector(Vector2 vec)
+// Creates complex number from vector of two real numbers
+
+// 3.2
+
+Inteface Object that implemented by classes Sphere and Torus.
