@@ -1,0 +1,97 @@
+1. 
+Before:
+window = new sf::RenderWndow(sf::VideoMode(1920, 1080));
+
+After:
+const int SCREEN_WIDTH_PIXELS = 1920;
+const int SCREEN_HEIGHT_PIXELS = 1080;
+window = new sf::RenderWndow(sf::VideoMode(SCREEN_WIDTH_PIXELS, SCREEN_HEIGHT_PIXELS));
+
+2.
+Before:
+time.sleep(0.0166)
+
+After:
+FPS = 60
+TIME_ON_FRAME = 1 / FPS
+time.sleep(TIME_ON_FRAME)
+
+3.
+Before:
+if step_num > 10:
+
+After:
+MAX_STEP_NUM = 10
+if step_num > MAX_STEP_NUM:
+
+4.
+Before:
+if mid_dist < 0.001:
+
+After:
+EPSILON = 0.001
+if min_dist < EPSILON:
+
+5.
+Before:
+screen_part_height = screen_height // 4
+
+After:
+SCREEN_PARTS_NUM = 4
+screen_part_height = screen_height // SCREEN_PARTS_NUM
+
+6.
+Before:
+angle += 10
+
+After:
+ANGLE_CHANGE = 10
+angle += ANGLE_CHANGE
+
+7.
+Before:
+for (int i = 0; i < 10; i++){...}
+
+After:
+const int STEPS_ON_CHECK = 10;
+for (int i = 0; i < STEPS_ON_CHECK; i++){...}
+
+8.
+Before:
+return Vector2((pos.x - win_size.x / 2) / 500 + offset.x, (pos.y - win_size.y / 2) / 500 + offset.y);
+
+After:
+const int scale = 500;
+return Vector2((pos.x - win_size.x / 2) / scale + offset.x, (pos.y - win_size.y / 2) / scale + offset.y);
+
+9.
+Before:
+float f = (b1->GetMass() * b2->GetMass() / (dist*dist)) * 0.006;
+
+After:
+const int GRAVITATIONAL_CONSTANT = 0.006;
+float f = (b1->GetMass() * b2->GetMass() / (dist*dist)) * GRAVITATIONAL_CONSTANT;
+
+10.
+Before:
+return diametr * 3.14;
+
+After:
+const double PI = 3.14;
+return diamter * PI;
+
+11.
+Before:
+window = new sf::RenderWindow("universe_sandbox", sf::Style::Fullscreen);
+
+After:
+const string WINDOW_NAME = "universe_sandbox";
+window = new sf::RenderWindow(WINDOW_NAME, sf::Style::Fullscreen);
+
+12.
+Before:
+while (dist < 80) {...}
+
+After:
+const int max_drawning_dist = 80;
+while ((dist < max_drawning_dist) {...}
