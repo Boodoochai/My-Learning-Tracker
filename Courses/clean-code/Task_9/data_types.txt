@@ -40,7 +40,7 @@ Before:
 return true ? z.x * z.x + z.y * z.y < 8 : false;
 
 After:
-boolean is_too_big = z.x * z.x + z.y * z.y < 8;
+bool is_too_big = z.x * z.x + z.y * z.y < 8;
 return true ? is_too_big : false;
 
 // Добавление булевой переменной в условие
@@ -74,32 +74,64 @@ im /= arg;
 
 7.
 Before:
-
+double min_dist = 99999999999999999999999.0;
 
 After:
+long double min_dist = std::numeric_limits<long double>::max();
+
+// Избавился от магического числа
 
 8.
 Before:
+double steps_on_check = 1;
 
 After:
+int steps_on_check = 1;
+
+// Замена вещественного числа на целое
 
 9.
 Before:
+if (SDL_Init(SDL_INIT_VIDEO) < 0) {...}
 
 After:
+bool initialized = SDL_Init(SDL_INIT_VIDEO) < 0;
+if (initialized) {...}
+
+// Добавил булеву переменную в условие
 
 10.
 Before:
+speed += force / mass;
 
 After:
+if (mass == 0) {
+    throw std::invalid_argument( "received zero value" );
+}
+
+// Добавил проверку деления на ноль
 
 11.
 Before:
+if (DistanceBetweenBodies(scene->bodies[i], scene->bodies[j]) <
+    scene->bodies[i]->GetRadius() + scene->bodies[j]->GetRadius()){...}
 
 After:
+bool collide = DistanceBetweenBodies(scene->bodies[i], scene->bodies[j]) <
+    scene->bodies[i]->GetRadius() + scene->bodies[j]->GetRadius()
+if (collide) {...}
+
+// Добавил булеву переменную в условие
 
 12.
 Before:
+float f = (b1->GetMass() * b2->GetMass() / (dist*dist)) * 0.006;
 
 After:
+if (dist == 0) {
+    f = 0
+} else {
+    float f = (b1->GetMass() * b2->GetMass() / (dist*dist)) * 0.006;
+}
 
+// Проверка деления на ноль
