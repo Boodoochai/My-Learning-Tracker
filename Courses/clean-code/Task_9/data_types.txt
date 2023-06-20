@@ -1,0 +1,105 @@
+1.
+Before:
+double min_dist = scene->min_dist_from_point(ray.get_position());
+double dist = min_dist;
+
+After:
+long double min_dist = scene->min_dist_from_point(ray.get_position());
+long double dist = min_dist;
+
+// Увелечение точности
+
+2.
+Before:
+double x_offset = cords.x / window.size.x;
+
+After:
+Window(Vector2 position, Vector2 size) : position(position) {
+    if (size == 0) {
+        throw std::invalid_argument( "received zero value" );
+    }
+    if (size < 0) {
+        throw std::invalid_argument( "received negative value" );
+    }
+    this->size = size;
+}
+
+// Добавление проверки деления на ноль
+
+3.
+Before:
+while ((dist < 80) && (min_dist > 0)) {...}
+
+After:
+while ((dist < 80) && (min_dist > 0.00001)) {...}
+
+// min_dist это вещественное число было возможно не каректное сравнение
+
+4.
+Before:
+return true ? z.x * z.x + z.y * z.y < 8 : false;
+
+After:
+boolean is_too_big = z.x * z.x + z.y * z.y < 8;
+return true ? is_too_big : false;
+
+// Добавление булевой переменной в условие
+
+5.
+Before:
+return vec / vector_length(vec);
+
+After:
+long double length = vector_length(vec);
+if (length == 0) {
+    throw std::invalid_argument( "received zero vector" );
+}
+return vec / vector_length;
+
+// Проверка деления на ноль
+
+6.
+Before:
+re /= arg;
+im /= arg;
+
+After:
+if (arg == 0) {
+    throw std::invalid_argument( "received zero value" );
+}
+re /= arg;
+im /= arg;
+
+// Проверка деления на ноль
+
+7.
+Before:
+
+
+After:
+
+8.
+Before:
+
+After:
+
+9.
+Before:
+
+After:
+
+10.
+Before:
+
+After:
+
+11.
+Before:
+
+After:
+
+12.
+Before:
+
+After:
+
