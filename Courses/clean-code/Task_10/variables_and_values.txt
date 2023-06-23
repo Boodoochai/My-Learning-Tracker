@@ -1,0 +1,289 @@
+1.
+Before:
+long fps_update_period = 1000 * 1000 / 4;
+
+After:
+const long fps_update_period = 1000 * 1000 / 4;
+
+// Добавил идентификатор const потому, что значение переменной не изменяется.
+
+2.
+Before:
+Body::Body() 
+{
+    color = sf::Color::White;
+    way = new sf::VertexArray(sf::LineStrip);
+}
+
+After:
+Body::Body() 
+{
+    mass = 0;
+    speed = sf::Vector2f(0, 0);
+    radius = this->CountRadius();
+    position = sf::Vector2f(0, 0);
+    color = sf::Color::White;
+    way = new sf::VertexArray(sf::LineStrip);
+}
+
+// Добавил инициализацию всех полей класса.
+
+3.
+Before:
+double dist = 0;
+
+for (auto &distance_estimator : children) {
+    dist = distance_estimator->get_distance(point);
+    if (dist < min_dist) {
+        min_dist = dist;
+    }
+}
+After:
+for (auto &distance_estimator : children) {
+    double dist = distance_estimator->get_distance(point);
+    if (dist < min_dist) {
+        min_dist = dist;
+    }
+}
+
+// Перенёс создание переменной прямо к месту её использования.
+
+4.
+Before:
+Canvas::Canvas() {}
+
+After:
+Canvas::Canvas()
+{
+    offset = sf::Vector2f(0, 0);
+    scale = 0;
+}
+
+// Проинициализировал поля класса
+
+5.
+Before:
+delete distance_estimator;
+
+After:
+delete distance_estimator;
+distance_estimator = null;
+
+// После удаления объекта по данному адресу присвоил указателю недопустимое значение.
+
+6.
+Before:
+double dist = 0;
+
+for (int y = 0; y < (int)window.size.y; y++) {
+    for (int x = 0; x < (int)window.size.x; x++) {
+        dist =
+            raymarch(scene, ray_from_screen_cords(scene, Vector2(x, y)));
+        if (dist > 80) {
+            dist = 80;
+        }
+    /*Some code*/
+    }
+}
+
+After:
+for (int y = 0; y < (int)window.size.y; y++) {
+    for (int x = 0; x < (int)window.size.x; x++) {
+        double dist =
+            raymarch(scene, ray_from_screen_cords(scene, Vector2(x, y)));
+        if (dist > 80) {
+            dist = 80;
+        }
+    /*Some code*/
+    }
+}
+
+// Перенёс создание переменной прямо к месту её использования.
+
+7.
+Before:
+delete program;
+
+After:
+delete program;
+program = null;
+
+// После удаления объекта по данному адресу присвоил указателю недопустимое значение.
+
+8.
+Before:
+sf::Vector2f min_imp;
+if (vector_length(scene->bodies[i]->GetImpulse()) <
+    vector_length(scene->bodies[j]->GetImpulse())){
+    min_imp = scene->bodies[i]->GetImpulse();
+    scene->bodies[i]->ApplyForce(min_imp * -1.f);
+    scene->bodies[j]->ApplyForce(min_imp);
+} else {
+    min_imp = scene->bodies[j]->GetImpulse();
+    scene->bodies[i]->ApplyForce(min_imp);
+    scene->bodies[j]->ApplyForce(min_imp * -1.f);
+}
+
+After:
+if (vector_length(scene->bodies[i]->GetImpulse()) <
+    vector_length(scene->bodies[j]->GetImpulse())){
+    sf:Vector2f min_imp = scene->bodies[i]->GetImpulse();
+    scene->bodies[i]->ApplyForce(min_imp * -1.f);
+    scene->bodies[j]->ApplyForce(min_imp);
+} else {
+    sf:Vector2f min_imp = scene->bodies[j]->GetImpulse();
+    scene->bodies[i]->ApplyForce(min_imp);
+    scene->bodies[j]->ApplyForce(min_imp * -1.f);
+}
+
+// Перенёс создание переменной прямо к месту её использования.
+
+9.
+Before:
+sf:Vector2f force = sf:Vector2f(0, 0);
+for (int i = 0; i < scene->bodies.size() - 1; i++){
+    for (int j = i + 1; j < scene->bodies.size(); j++){
+        force = GravitationForce(scene->bodies[i], 
+                                              scene->bodies[j]);
+        /*Some code*/
+    }
+}
+
+After:
+for (int i = 0; i < scene->bodies.size() - 1; i++){
+    for (int j = i + 1; j < scene->bodies.size(); j++){
+        sf::Vector2f force = GravitationForce(scene->bodies[i], 
+                                              scene->bodies[j]);
+        /*Some code*/
+    }
+}
+
+// Перенёс создание переменной прямо к месту её использования.
+
+10.
+Before:
+SDL_Init(SDL_INIT_VIDEO);
+
+After:
+if (SDL_Init(SDL_INIT_VIDEO) < 0){
+    printf("Unable to init SDL: %s\n", SDL_GetError());
+    SDL_Quit();
+    return 1;
+}
+
+// Добавил проверку допустимости значения переменной.
+
+11.
+Before:
+complex offset = complex(0, 0);
+for (int x = 0; x < win_size.x; x++){
+    for (int y = 0; y < win_size.y; y++){
+        vector2 coords = get_coord(vector2(x, y));
+        offset = complex(coords.x, coords.y);
+        int intensty = calculate_intensity(offset);
+        /*some code*/
+    }
+}
+
+After:
+for (int x = 0; x < win_size.x; x++){
+    for (int y = 0; y < win_size.y; y++){
+        complex vector2 coords = get_coord(vector2(x, y));
+        offset = complex(coords.x, coords.y);
+        int intensity = calculate_intensity(offset);
+        /*some code*/
+    }
+}
+
+// Перенёс создание переменной прямо к месту её использования.
+
+12.
+Before:
+SDL_Window *window = SDL_CreateWindow("Test", 100, 100, win_size.x, win_size.y,
+                                          SDL_WINDOW_SHOWN | 
+                                          SDL_WINDOW_FULLSCREEN);
+    
+After:
+SDL_Window *window = SDL_CreateWindow("Test", 100, 100, win_size.x, win_size.y,
+                                          SDL_WINDOW_SHOWN | 
+                                          SDL_WINDOW_FULLSCREEN);
+    
+if (window == nullptr) {
+    printf("Unable to create Window %s\n", SDL_GetError());
+    SDL_Quit();
+    return 1;
+}
+
+// Добавил проверку допустимости значения переменной.
+
+13.
+Before:
+SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
+                                               SDL_RENDERER_ACCELERATED |
+                                               SDL_RENDERER_PRESENTVSYNC);
+
+After:
+SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
+                                               SDL_RENDERER_ACCELERATED |
+                                               SDL_RENDERER_PRESENTVSYNC);
+
+if (renderer == nullptr) {
+    printf("Unable to create Renderer %s\n", SDL_GetError());
+    SDL_Quit();
+    return 1;
+}
+
+// Добавил проверку допустимости значения переменной.
+
+14.
+Before:
+Body::Body(const float a_mass, const sf::Vector2f &a_pos)
+{
+    mass = a_mass;
+    radius = this->CountRadius();
+    position = a_pos;
+    way = new sf::VertexArray(sf::LineStrip);
+}
+
+After:
+Body::Body(const float a_mass, const sf::Vector2f &a_pos)
+{
+    mass = a_mass;
+    radius = this->CountRadius();
+    speed = sf:Vector2f(0, 0);
+    position = a_pos;
+    color = sf::Color::White;
+    way = new sf::VertexArray(sf::LineStrip);
+}
+
+// Добавил инициализацию всех полей класса.
+
+15.
+Before:
+k = 0
+while True:
+    k += 1
+    min_dist = 99999999999999999999999999999999999
+    for obj in scene.objects:
+        min_dist = min(min_dist, obj.get_distance(ray.position))
+    ray.position = ray.position + ray.direction.normalized() * min_dist
+    if min_dist < 0.01:
+        dist = pos.get_distance(ray.position)
+        data[y - start_y][x] = Settings.walls[int(min(dist, 30) / 30 * len(Settings.walls))]
+        break
+    if k > 10:
+        break
+
+After:
+
+for k in range(10):
+    min_dist = 99999999999999999999999999999999999
+    for obj in scene.objects:
+        min_dist = min(min_dist, obj.get_distance(ray.position))
+    ray.position = ray.position + ray.direction.normalized() * min_dist
+    if min_dist < 0.01:
+        dist = pos.get_distance(ray.position)
+        data[y - start_y][x] = Settings.walls[int(min(dist, 30) / 30 * len(Settings.walls))]
+        break
+
+// Перенёс содание переменной счётчика в заголовок цикла.
