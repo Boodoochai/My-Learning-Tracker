@@ -1,0 +1,392 @@
+1.
+Before:
+def run(self):
+    while True:
+    self.x += 10
+    if self.x == 360:
+        self.x = 0
+    self.scene.objects[0].direction = Vector3(math.cos(self.x / 180 * math.pi), math.sin(self.x / 180 * math.pi),
+                                              0).normalized()
+    self.renderer.render(self.scene)
+
+After:
+def run(self):
+    while True:
+        self.update()
+
+        self.draw()
+
+
+def update(self):
+    self.x += 10
+    if self.x == 360:
+        self.x = 0
+    self.scene.objects[0].direction = Vector3(math.cos(self.x / 180 * math.pi), math.sin(self.x / 180 * math.pi),
+                                              0).normalized()
+
+def draw(self):
+    self.renderer.render(self.scene)
+
+// Разбил код на фунцкции.
+
+2.
+Before:
+void Canvas::DrawScene(const Scene *scene, sf::RenderWindow *window)
+{
+    window->clear();
+
+    for (int i = 0; i < scene->bodies.size(); i++){
+        window->draw(*scene->bodies[i]->GetWay());
+        window->draw(BodyShape(scene->bodies[i]));
+    }
+}
+
+After:
+void Canvas::DrawScene(const Scene *scene, sf::RenderWindow *window)
+{
+    window->clear();
+
+    for (int i = 0; i < scene->bodies.size(); i++){
+        DrawBody(scene->bodies[i], window);
+    }
+}
+
+void Canvas::DrawBody(const Body *body, sf::RenderWindow *window)
+{
+    window->draw(*body->GetWay());
+    window->draw(BodyShape(body));
+}
+
+// Вынес часть кода в отдельную функцию.
+
+3.
+Before:
+class Body
+{
+public:
+    float mass;
+    float radius;
+    sf::Vector2f position;
+    sf::Vector2f speed;
+    sf::Color color;
+    sf::VertexArray *way;
+/* Some methods*/
+}
+
+After:
+class Body
+{
+private:
+    float mass;
+    float radius;
+    sf::Vector2f position;
+    sf::Vector2f speed;
+    sf::Color color;
+    sf::VertexArray *way;
+/* Some methods*/
+}
+
+// Уменьшил область видимости полей класса.
+
+4.
+Before:
+class Program {
+public:
+    int frame_rate;
+    int fixed_update_period;
+    Canvas *canvas;
+    PhysicsDirector *physics_director;
+    sf::RenderWindow *window;
+    Scene *scene;
+/* ... */
+}
+
+After:
+class Program {
+private:
+    int frame_rate;
+    int fixed_update_period;
+    Canvas *canvas;
+    PhysicsDirector *physics_director;
+    sf::RenderWindow *window;
+    Scene *scene;
+/* ... */
+}
+
+// Уменьшил область видимости полей класса.
+
+5.
+Before:
+class Canvas
+{
+public:
+    sf::Vector2f offset;
+    double scale; 
+/* ... */
+}
+
+After:
+class Canvas
+{
+private:
+    sf::Vector2f offset;
+    double scale; 
+/* ... */
+}
+
+// Уменьшил область видимости полей класса.
+
+6.
+Before:
+class Clock
+{
+public:
+    std::chrono::time_point<std::chrono::steady_clock> start_time;
+/* ... */
+}
+
+After:
+class Clock
+{
+private:
+    std::chrono::time_point<std::chrono::steady_clock> start_time;
+/* ... */
+}
+
+// Уменьшил область видимости поля класса.
+
+7.
+Before:
+double Scene::min_dist_from_point(const Vector3 point) {
+  double min_dist = 9999999999999999.0;
+  for (int i = 0; i < objects.size(); i++) {
+    DistanceEstimator *distance_estimator =
+        objects[i]->get_distance_estimator();
+    double cur_object_dist = distance_estimator->get_distance(point);
+    delete distance_estimator;
+    if (cur_object_dist < min_dist) {
+      min_dist = cur_object_dist;
+    }
+  }
+  return min_dist;
+}
+
+After:
+double Scene::min_dist_from_point(const Vector3 point) {
+  double min_dist = 9999999999999999.0;
+  for (int i = 0; i < objects.size(); i++) {
+    double cur_object_dist = objects[i]->min_dist_from_point(point);
+    if (cur_object_dist < min_dist) {
+      min_dist = cur_object_dist;
+    }
+  }
+  return min_dist;
+}
+
+double Body::min_dist_from_point(const Vector3 point) {
+    DistanceEstimator* distance_estimator = this->get_distance_estimator();
+    double dist = distance_estimator->get_distance(point);
+    delete distance_estimator;
+    return dist;
+}
+
+// Вынес часть кода в отдельную функцию.
+
+8.
+Before:
+class Scene {
+public:
+  Camera *camera;
+  std::vector<Object *> objects;
+/* ... */
+}
+
+After:
+class Scene {
+private:
+  Camera *camera;
+  std::vector<Object *> objects;
+/* ... */
+}
+
+// Уменьшил область видимости полей класса.
+
+9.
+Before:
+class camera {
+public:
+  vector3 position;
+  vector3 screen_position;
+  vector2 screen_size;
+/* ... */
+}
+
+After:
+class camera {
+public:
+  vector3 position;
+  vector3 screen_position;
+  vector2 screen_size;
+/* ... */
+}
+
+// Уменьшил область видимости полей класса.
+
+10.
+Before:
+sf::Vector2f min_imp = sf:Vector2f(0, 0);
+if (vector_length(scene->bodies[i]->GetImpulse()) <
+    vector_length(scene->bodies[j]->GetImpulse())){
+    min_imp = scene->bodies[i]->GetImpulse();
+    scene->bodies[i]->ApplyForce(min_imp * -1.f);
+    scene->bodies[j]->ApplyForce(min_imp);
+}
+
+After:
+if (vector_length(scene->bodies[i]->GetImpulse()) <
+    vector_length(scene->bodies[j]->GetImpulse())){
+    sf:Vector2f min_imp = scene->bodies[i]->GetImpulse();
+    scene->bodies[i]->ApplyForce(min_imp * -1.f);
+    scene->bodies[j]->ApplyForce(min_imp);
+}
+
+// Уменьшил область видимости переменной
+
+11.
+Before:
+void PhysicsDirector::ApplyGravitation(Scene *scene) 
+{
+    for (int i = 0; i < scene->bodies.size() - 1; i++){
+        for (int j = i + 1; j < scene->bodies.size(); j++){
+            sf::Vector2f force = GravitationForce(scene->bodies[i], 
+                                                  scene->bodies[j]);
+            scene->bodies[i]->speed += force / scene->bodies[i]->mass;
+            scene->bodies[j]->speed += -1.0 * force / scene->bodies[j]->mass;
+        }
+    }
+}
+
+After:
+void PhysicsDirector::ApplyGravitation(Scene *scene) 
+{
+    for (int i = 0; i < scene->bodies.size() - 1; i++){
+        for (int j = i + 1; j < scene->bodies.size(); j++){
+            sf::Vector2f force = GravitationForce(scene->bodies[i], 
+                                                  scene->bodies[j]);
+            scene->bodies[i]->ApplyForce(force);
+            scene->bodies[j]->ApplyForce(force * -1.0);
+        }
+    }
+}
+
+void Body::ApplyForce(const sf::Vector2f &force) 
+{
+    speed += force / mass;
+}
+
+// Вынес часть кода в отдельный метод.
+
+12.
+Before:
+for (int x = 0; x < win_size.x; x++){
+    for (int y = 0; y < win_size.y; y++){
+        Vector2 coords = get_coord(Vector2(x, y));
+        Complex c = Complex(coords.x, coords.y);
+        int blue = 0;
+        Complex z = Complex(0, 0);
+        for (int i = 0; i < steps_on_check; i++){
+            z = z * z + c;
+            if (z.x * z.x + z.y * z.y > 8) {
+                blue = i / steps_on_check * 255;
+            }
+        }
+        SDL_SetRenderDrawColor(renderer, 0, 0, blue, 255);
+        SDL_RenderDrawPoint(renderer, x, y);
+    }
+}
+
+After:
+for (int x = 0; x < win_size.x; x++){
+    for (int y = 0; y < win_size.y; y++){
+        Vector2 coords = get_coord(Vector2(x, y));
+        Complex c = Complex(coords.x, coords.y);
+        int blue = intensity(c);
+        SDL_SetRenderDrawColor(renderer, 0, 0, blue, 255);
+        SDL_RenderDrawPoint(renderer, x, y);
+    }
+}
+
+int intensity(const Complex &c)
+{
+    Complex z = Complex(0, 0);
+
+    for (int i = 0; i < steps_on_check; i++){
+        z = z * z + c;
+        if (z.x * z.x + z.y * z.y > 8) {
+            return i / steps_on_check * 255;
+        }
+    }
+    
+    return 0;
+}
+
+// Вынес часть кода в отдельный метод.
+
+13.
+Before:
+class Scene
+{
+public:
+    std::vector<Body*> bodies;
+/* ... */
+};
+
+After:
+class Scene
+{
+private:
+    std::vector<Body*> bodies;
+/* ... */
+};
+
+// Уменьшил область видимости полей класса.
+
+14.
+Before:
+class Ray {
+public:
+  Vector3 position;
+  Vector3 direction;
+/* ... */
+}
+
+After:
+class Ray {
+private:
+  Vector3 position;
+  Vector3 direction;
+/* ... */
+}
+
+// Уменьшил область видимости полей класса.
+
+15.
+Before:
+class Camera {
+public:
+  Vector3 position;
+  Vector3 screen_position;
+  Vector2 screen_size;
+/* ... */
+}
+
+After:
+class Camera {
+private:
+  Vector3 position;
+  Vector3 screen_position;
+  Vector2 screen_size;
+/* ... */
+}
+
+// Уменьшил область видимости полей класса.
