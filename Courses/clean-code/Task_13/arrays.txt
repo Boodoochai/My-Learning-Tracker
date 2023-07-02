@@ -1,0 +1,97 @@
+1.
+Before:
+self.objects = []
+
+After:
+self.objects = set()
+
+// Массив objects хранит фигуры на плоскости, но их порядок не важен поэтому его можно заменить на множество.
+
+2.
+Before:
+for (int i = 0; i < scene->bodies.size(); i++){
+    scene->bodies[i]->SetPosition(scene->bodies[i]->GetPosition() +  
+                                  scene->bodies[i]->GetSpeed());
+}
+After:
+for (auto body : scene->bodies) {
+    body->SetPosition(body->GetPosition() + body->GetSpeed());
+}
+
+// Убрал прямую индексацию масива.
+
+3.
+Before:
+for (int i = 0; i < scene->bodies.size() - 1; i++){
+    for (int j = i + 1; j < scene->bodies.size(); j++){
+        sf::Vector2f force = GravitationForce(scene->bodies[i], 
+                                              scene->bodies[j]);
+        scene->bodies[i]->ApplyForce(force);
+        scene->bodies[j]->ApplyForce(force * -1.0);
+    }
+}
+
+After:
+for (auto x_body : scene->bodies){
+    for (auto y_body : scene->bodies){
+        sf::Vector2f force = GravitationForce(x_body, y_body);
+        x_body->ApplyForce(force);
+        y_body->ApplyForce(force * -1.0);
+    }
+}
+
+// Убрал прямую индексацию масива.
+
+4.
+Before:
+for (int i = 0; i < scene->bodies.size() - 1; i++){
+    for (int j = i + 1; j < scene->bodies.size(); j++){
+        if (DistanceBetweenBodies(scene->bodies[i], scene->bodies[j]) >=
+            scene->bodies[i]->GetRadius() + scene->bodies[j]->GetRadius()){
+            continue;
+        }
+        sf::Vector2f min_imp;
+        if (vector_length(scene->bodies[i]->GetImpulse()) <
+            vector_length(scene->bodies[j]->GetImpulse())){
+            min_imp = scene->bodies[i]->GetImpulse();
+            scene->bodies[i]->ApplyForce(min_imp * -1.0);
+            scene->bodies[j]->ApplyForce(min_imp);
+        } else {
+            min_imp = scene->bodies[j]->GetImpulse();
+            scene->bodies[i]->ApplyForce(min_imp);
+            scene->bodies[j]->ApplyForce(min_imp * -1.0);
+        }
+    }
+}
+
+After:
+for (auto x_body : scene->bodies){
+    for (auto y_body : scene->bodies){
+        if (DistanceBetweenBodies(x_body, y_body) >=
+            x_body->GetRadius() + y_body->GetRadius()){
+            continue;
+        }
+        sf::Vector2f min_imp;
+        if (vector_length(x_body->GetImpulse()) <
+            vector_length(y_body->GetImpulse())){
+            min_imp = x_body->GetImpulse();
+            x_body->ApplyForce(min_imp * -1.0);
+            y_body->ApplyForce(min_imp);
+        } else {
+            min_imp = y_body->GetImpulse();
+            x_body->ApplyForce(min_imp);
+            y_body->ApplyForce(min_imp * -1.0);
+        }
+    }
+}
+
+// Убрал прямую индексацию масива.
+
+5.
+Before:
+std::vector<Body*> bodies;
+
+After:
+std::set<Body*> bodies;
+
+// Для данного массива не важен порядок так как он хранит множество тел в пространстве, поэтому я заменил его на множество.
