@@ -1,0 +1,30 @@
+3.1.
+1.
+// Создайт вектор с началом в центре камеры и концом в точке с кардинатами cords на экране камеры.
+Ray Render::makeRayFromScreenCords(Scene *scene, const Vector2 cords) {...}
+
+2.
+// Объект поворачивается на угол в x градсов.
+self.scene.objects[0].direction = Vector3(math.cos(self.x / 180 * math.pi), 
+                                          math.sin(self.x / 180 * math.pi), 0).normalized()
+
+3.
+// Возвращает интенсивность цвета в данной точке, как целое число от 0 до 255 включительно.
+int intensity(const Complex &c) {...}
+
+4.
+// Обработка нажатий на клавиатуру.
+while (SDL_PollEvent(&event)) {...}
+
+5.
+// Возвращает минимальное расстояние до поверхности сферы от точки point, если точка находится не внутри сферы
+// и возвращает минимальное расстояние до поверхности сферы умноженное на -1, если точка лежит внуттри сферы.
+double SphereDistanceEstimator::get_distance(const Vector3 point) const {...}
+
+6.
+// Вращает объект вокруг данной точки по данному кватерниону.
+void Sphere::rotateAround(const Vector3 point, const Quaternion quaternion)
+
+7.
+// Возвращает расстояние до точки пересечения данного луча с каким либо объектом на данной сцене.
+double Render::distanceToIntersection(Scene *scene, Ray ray) {...}
