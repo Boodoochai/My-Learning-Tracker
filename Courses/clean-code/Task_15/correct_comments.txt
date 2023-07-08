@@ -1,0 +1,70 @@
+1.
+// TODO Это функция заглушка и в настоящий момент не используется.
+def update(self):
+    pass
+
+Пункт: 6
+
+2.
+// Возвращает силу в ньютонах.
+sf::Vector2f PhysicsDirector::GravitationForce(const Body *b1, const Body *b2) const{...}
+
+Пункт: 1
+
+3.
+// cords это координаты на экране камеры, в которые будет направлен луч.
+Ray Render::ray_from_screen_cords(Scene *scene, const Vector2 cords) {...}
+
+Пункт: 3
+
+4.
+// quaternion это кватернион по которому будет происходить вращение объекта.
+void CompositeObject::rotate(const Quaternion quaternion) {...}
+
+5.
+// Часы будут запущены сразу после вызова консруктора.
+class Clock {...}
+
+Пункт: 4
+
+6.
+// id должен быть уникальным для каждого объекта.
+Object(const long id, CompositeObject *parent) : id(id), parent(parent) {}
+
+Пункт: 3
+
+7.
+// Возвращает расстояние в метрах.
+float PhysicsDirector::DistanceBetweenBodies(const Body *b1, const Body *b2) const {...}
+
+Пункт: 1
+
+8.
+// Метод нужно вызывать только в конце игрового цикла.
+void PhysicsDirector::ApplyCollisions(Scene *scene) {...}
+
+Пункт: 5
+
+9.
+// Значение в наносекндах.
+fixed_update_period = 20 * 1000;
+
+Пункт: 1
+
+10.
+// id должен быть уникальным для каждого объекта.
+Object *Torus::copy_to(const long id, Scene *scene, CompositeObject *parent) const {...}
+
+Пункт: 3
+
+11.
+// Метод русует сцену только на главном экране.
+void Render::draw(Scene *scene) {...}
+
+Пункт: 1
+
+12.
+// id должен быть уникальным для каждого объекта.
+Object *Sphere::copy_to(const long id, Scene *scene, CompositeObject *parent) const {...}
+
+Пункт: 3
