@@ -11,6 +11,8 @@ A log of my web development skills, learning, resources, interests and everythin
 |               Skill              | 1<br>Introduction | 2<br>Learning          | 3<br>Regular use |
 |:-------------------------------- |:-----------------:|:----------------------:|:----------------:|
 |**Java**                          | ![done][done]     | ![done][done]          | ![done][done]    |
+|**C++**                           | ![done][done]     | ![done][done]          | ![done][done]    |
+|**Python**                        | ![done][done]     | ![done][done]          | ![done][done]    |
 |**Git**                           | ![done][done]     | ![done][done]          | ![done][done]    |
 |**GitHub**                        | ![done][done]     | ![done][done]          | ![done][done]    |
 |**Command Line**                  | ![done][done]     | ![done][done]          | ![done][done]    |
@@ -29,8 +31,8 @@ A log of my web development skills, learning, resources, interests and everythin
 
 |            Status           |   Year     | Course\Books                                                    |                Tutor\Author                 |
 |:---------------------------:|:-----------|:----------------------------------------------------------------|:-------------------------------------------:|
-| ![Completed][Completed]     | Apr 2022   | Algorithms and data structures 1                                | [Сергей Бобровский]                         |
-| ![In Progress][In Progress] |            | Clean Code                                                      | [Сергей Бобровский]                         |
+| ![Completed][Completed]     | May 2023   | Algorithms and data structures 1                                | [Сергей Бобровский]                         |
+| ![Completed][Completed]     | Jul 2023   | Clean Code                                                      | [Сергей Бобровский]                         |
 | ![In Progress][In Progress] |            | Read: Spring in action                                          | Craig Walls                                 |
 
 [//]: # (Reference links to courses)
