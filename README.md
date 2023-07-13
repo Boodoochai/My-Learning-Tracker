@@ -29,10 +29,11 @@ A log of my web development skills, learning, resources, interests and everythin
 [In Progress]: https://user-images.githubusercontent.com/29199184/34462881-7305ddac-ee4d-11e7-9b57-589424820da4.png "In Progress"
 [Soon]: https://user-images.githubusercontent.com/29199184/34462916-d5c37bd4-ee4d-11e7-9f4a-d57f2243281b.png "Soon"
 
-|            Status           |   Year     | Course\Books                                                    |                Tutor\Author                 |
+|            Status           |  Finished  | Course\Books                                                    |                Tutor\Author                 |
 |:---------------------------:|:-----------|:----------------------------------------------------------------|:-------------------------------------------:|
 | ![Completed][Completed]     | May 2023   | Algorithms and data structures 1                                | [Сергей Бобровский]                         |
 | ![Completed][Completed]     | Jul 2023   | Clean Code                                                      | [Сергей Бобровский]                         |
+| ![In Progress][In Progress] |            | SQL from scratch                                                | [Сергей Бобровский]                         |
 | ![In Progress][In Progress] |            | Read: Spring in action                                          | Craig Walls                                 |
 
 [//]: # (Reference links to courses)
