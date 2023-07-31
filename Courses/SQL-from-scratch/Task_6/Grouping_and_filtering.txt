@@ -1,0 +1,9 @@
+SELECT ContactType
+FROM Contacts
+GROUP BY ContactType;
+
+SELECT CategoryID, 
+    AVG(UnitPrice) as AVG_UNITPRICE 
+FROM Products
+GROUP BY CategoryID 
+ORDER BY AVG_UNITPRICE;
