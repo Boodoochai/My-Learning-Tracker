@@ -1,4 +1,4 @@
-SELECT ContactType
+SELECT ContactType, Count(ContactType) as Counts
 FROM Contacts
 GROUP BY ContactType;
 
