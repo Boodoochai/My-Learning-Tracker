@@ -1,0 +1,13 @@
+SELECT Discount / UnitPrice
+FROM [Order Details];
+
+SELECT *
+FROM [Order Details]
+WHERE OrderID =
+	(SELECT OrderID
+	FROM Products
+	WHERE UnitsInStock > 40);
+
+SELECT *
+FROM [Order Details]
+WHERE ProductID = (SELECT ProductID FROM Products WHERE UnitsInStock > 40) AND OrderID = (SELECT OrderID FROM Orders WHERE Freight >= 50);
