@@ -1,10 +1,10 @@
-SELECT Discount / UnitPrice
+SELECT Discount * 100
 FROM [Order Details];
 
 SELECT *
 FROM [Order Details]
-WHERE OrderID =
-	(SELECT OrderID
+WHERE ProductID =
+	(SELECT ProductID
 	FROM Products
 	WHERE UnitsInStock > 40);
 
