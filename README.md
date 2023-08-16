@@ -18,6 +18,7 @@ A log of my web development skills, learning, resources, interests and everythin
 |**Command Line**                  | ![done][done]     | ![done][done]          | ![done][done]    |
 |**Linux**                         | ![done][done]     | ![done][done]          | ![done][done]    |
 |**Java Spring Framework**         | ![done][done]     | ![done][done]          |                  |
+|**Thymeleaf**                     | ![done][done]     |                        |                  |
 
 ----
 
