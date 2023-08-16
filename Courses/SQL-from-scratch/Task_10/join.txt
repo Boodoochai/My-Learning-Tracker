@@ -9,9 +9,9 @@ WHERE [Order Details].UnitPrice < 20;
 2. Потому, что некоторый CustomerID может быть в одной таблице и при этом не быть в другой.
 
 // 10.4.3
-Написать условие, что какой-то параметр из одной таблице должен быть равен параметру из другой.
+Написать условие, что параметр из одной таблице должен быть равен параметру из другой.
 
 // 10.4.4
 SELECT Products.ProductName, [Order Details].UnitPrice
 FROM Products INNER JOIN [Order Details]
-WHERE Products.ProductID = [Order Details].ProductID;
+ON Products.ProductID = [Order Details].ProductID;
