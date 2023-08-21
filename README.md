@@ -8,7 +8,7 @@ A log of my web development skills, learning, resources, interests and everythin
 
 [done]: https://user-images.githubusercontent.com/29199184/32275438-8385f5c0-bf0b-11e7-9406-42265f71e2bd.png "Done"
 
-|               Skill              | 1<br>Introduction | 2<br>Learning          | 3<br>Regular use |
+|               Skill              | 1<br>Introduction | 2<br>Occasional use    | 3<br>Regular use |
 |:-------------------------------- |:-----------------:|:----------------------:|:----------------:|
 |**Java**                          | ![done][done]     | ![done][done]          | ![done][done]    |
 |**C++**                           | ![done][done]     | ![done][done]          | ![done][done]    |
@@ -18,7 +18,7 @@ A log of my web development skills, learning, resources, interests and everythin
 |**Command Line**                  | ![done][done]     | ![done][done]          | ![done][done]    |
 |**Linux**                         | ![done][done]     | ![done][done]          | ![done][done]    |
 |**Java Spring Framework**         | ![done][done]     | ![done][done]          |                  |
-|**Thymeleaf**                     | ![done][done]     |                        |                  |
+|**Thymeleaf**                     | ![done][done]     | ![done][done]          |                  |
 
 ----
 
