@@ -34,7 +34,8 @@ A log of my web development skills, learning, resources, interests and everythin
 |:---------------------------:|:-----------|:----------------------------------------------------------------|:-------------------------------------------:|
 | ![Completed][Completed]     | May 2023   | Algorithms and data structures 1                                | [Сергей Бобровский]                         |
 | ![Completed][Completed]     | Jul 2023   | Clean Code                                                      | [Сергей Бобровский]                         |
-| ![In Progress][In Progress] |            | SQL from scratch                                                | [Сергей Бобровский]                         |
+| ![Completed][Completed]     | Sep 2023   | SQL from scratch                                                | [Сергей Бобровский]                         |
+| ![In Progress][In Progress] |            | Algorithms and data structures 2                                | [Сергей Бобровский]                         |
 | ![In Progress][In Progress] |            | Read: Spring in action                                          | Craig Walls                                 |
 
 [//]: # (Reference links to courses)
