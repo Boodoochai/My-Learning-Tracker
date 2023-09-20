@@ -14,7 +14,7 @@ public class BSTCountTest {
     @Test
     void OnlyRootTree(){
         BSTNode<Integer> root = new BSTNode<>(0, 0, null);
-        BST<Integer> tree = new BST<>(null);
+        BST<Integer> tree = new BST<>(root);
 
         int res = tree.Count();
 
@@ -24,7 +24,7 @@ public class BSTCountTest {
     @Test
     void EightNodeTree(){
         BSTNode<Integer> root = new BSTNode<>(0, 0, null);
-        BST<Integer> tree = new BST<>(null);
+        BST<Integer> tree = new BST<>(root);
         tree.AddKeyValue(1, 1);
         tree.AddKeyValue(2, 1);
         tree.AddKeyValue(3, 1);
@@ -41,7 +41,7 @@ public class BSTCountTest {
     @Test
     void TwoNodeTree(){
         BSTNode<Integer> root = new BSTNode<>(0, 0, null);
-        BST<Integer> tree = new BST<>(null);
+        BST<Integer> tree = new BST<>(root);
         tree.AddKeyValue(1, 1);
 
         int res = tree.Count();

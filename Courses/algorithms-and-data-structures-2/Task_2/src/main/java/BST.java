@@ -1,39 +1,57 @@
-class BST<T>
-{
-    BSTNode<T> Root; // корень дерева, или null
+class BST<T> {
+    BSTNode<T> Root;
 
-    public BST(BSTNode<T> node)
-    {
+    public BST(BSTNode<T> node) {
         Root = node;
     }
 
-    public BSTFind<T> FindNodeByKey(int key)
-    {
-        // ищем в дереве узел и сопутствующую информацию по ключу
-        return null;
+    public BSTFind<T> FindNodeByKey(int key) {
+        if (Root == null) {
+            return null;
+        }
+        return Root.FindNodeByKey(key);
     }
 
-    public boolean AddKeyValue(int key, T val)
-    {
-        // добавляем ключ-значение в дерево
-        return false; // если ключ уже есть
+    public boolean AddKeyValue(int key, T val) {
+        if (Root == null) {
+            Root = new BSTNode<>(key, val, null);
+        }
+        BSTFind<T> node_find = FindNodeByKey(key);
+        if (node_find.NodeHasKey) {
+            return false;
+        }
+        BSTNode<T> node_to_add = new BSTNode<>(key, val, node_find.Node);
+        if (node_find.ToLeft) {
+            node_find.Node.LeftChild = node_to_add;
+        } else {
+            node_find.Node.RightChild = node_to_add;
+        }
+        return true;
     }
 
-    public BSTNode<T> FinMinMax(BSTNode<T> FromNode, boolean FindMax)
-    {
-        // ищем максимальный/минимальный ключ в поддереве
-        return null;
+    public BSTNode<T> FinMinMax(BSTNode<T> FromNode, boolean FindMax) {
+        if (FromNode == null) {
+            return null;
+        }
+        if (FindMax) {
+            return FromNode.FindMax();
+        }
+        return FromNode.FindMin();
     }
 
-    public boolean DeleteNodeByKey(int key)
-    {
-        // удаляем узел по ключу
-        return false; // если узел не найден
+    public boolean DeleteNodeByKey(int key) {
+        BSTFind<T> f = FindNodeByKey(key);
+        if (!f.NodeHasKey) {
+            return false;
+        }
+        return true;
     }
 
-    public int Count()
-    {
-        return 0; // количество узлов в дереве
+    public int Count() {
+        if (Root == null) {
+            return 0;
+        }
+        return Root.Count();
     }
 
 }
