@@ -1,17 +1,11 @@
-import java.io.*;
-import java.util.*;
-import java.util.concurrent.Delayed;
-
-class BSTNode<T>
-{
+class BSTNode<T> {
     public int NodeKey;
     public T NodeValue;
     public BSTNode<T> Parent;
     public BSTNode<T> LeftChild;
     public BSTNode<T> RightChild;
 
-    public BSTNode(int key, T val, BSTNode<T> parent)
-    {
+    public BSTNode(int key, T val, BSTNode<T> parent) {
         NodeKey = key;
         NodeValue = val;
         Parent = parent;
@@ -19,8 +13,7 @@ class BSTNode<T>
         RightChild = null;
     }
 
-    public int Count()
-    {
+    public int Count() {
         int ans = 1;
         if (LeftChild != null) {
             ans += LeftChild.Count();

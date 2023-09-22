@@ -96,7 +96,7 @@ public class DeleteNodeByKeyTest {
         tree.AddKeyValue(3, 3);
         tree.AddKeyValue(4, 4);
 
-        boolean res1 = tree.DeleteNodeByKey(1);
+        boolean res1 = tree.DeleteNodeByKey(4);
         boolean res2 = tree.DeleteNodeByKey(2);
 
         BSTFind<Integer> ans1 = tree.FindNodeByKey(1);
@@ -107,10 +107,10 @@ public class DeleteNodeByKeyTest {
         Assertions.assertTrue(res1);
         Assertions.assertTrue(res2);
         Assertions.assertEquals(2, tree.Count());
-        Assertions.assertFalse(ans1.NodeHasKey);
+        Assertions.assertTrue(ans1.NodeHasKey);
         Assertions.assertFalse(ans2.NodeHasKey);
         Assertions.assertTrue(ans3.NodeHasKey);
-        Assertions.assertTrue(ans4.NodeHasKey);
+        Assertions.assertFalse(ans4.NodeHasKey);
     }
 
     @Test
@@ -147,5 +147,37 @@ public class DeleteNodeByKeyTest {
             }
         }
 
+    }
+
+    @Test
+    void FromNormalTree5() {
+        BST<Integer> tree = new BST<Integer>(null);
+
+        tree.AddKeyValue(1, 1);
+        tree.AddKeyValue(2, 2);
+        tree.AddKeyValue(3, 3);
+        tree.AddKeyValue(4, 4);
+        tree.AddKeyValue(10, 10);
+        tree.AddKeyValue(100, 100);
+
+        boolean res1 = tree.DeleteNodeByKey(100);
+        boolean res2 = tree.DeleteNodeByKey(2);
+
+        BSTFind<Integer> ans1 = tree.FindNodeByKey(1);
+        BSTFind<Integer> ans2 = tree.FindNodeByKey(2);
+        BSTFind<Integer> ans3 = tree.FindNodeByKey(3);
+        BSTFind<Integer> ans4 = tree.FindNodeByKey(4);
+        BSTFind<Integer> ans5 = tree.FindNodeByKey(10);
+        BSTFind<Integer> ans6 = tree.FindNodeByKey(100);
+
+        Assertions.assertTrue(res1);
+        Assertions.assertTrue(res2);
+        Assertions.assertEquals(4, tree.Count());
+        Assertions.assertTrue(ans1.NodeHasKey);
+        Assertions.assertFalse(ans2.NodeHasKey);
+        Assertions.assertTrue(ans3.NodeHasKey);
+        Assertions.assertTrue(ans4.NodeHasKey);
+        Assertions.assertTrue(ans5.NodeHasKey);
+        Assertions.assertFalse(ans6.NodeHasKey);
     }
 }

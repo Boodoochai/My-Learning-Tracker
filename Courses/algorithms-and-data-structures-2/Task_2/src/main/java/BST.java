@@ -1,5 +1,3 @@
-import org.w3c.dom.Node;
-
 class BST<T> {
     BSTNode<T> Root;
 
@@ -84,7 +82,7 @@ class BST<T> {
         return true;
     }
 
-    private void DeleteRoot(){
+    private void DeleteRoot() {
         if (Count() == 1) {
             Root = null;
             return;
