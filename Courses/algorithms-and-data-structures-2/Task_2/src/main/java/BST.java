@@ -78,7 +78,7 @@ class BST<T> {
             }
             return true;
         }
-        DeleteTwoChildsNode(f.Node);
+        DeleteTwoChildNode(f.Node);
         return true;
     }
 
@@ -101,13 +101,23 @@ class BST<T> {
         replacement.RightChild = Root.RightChild;
         replacement.LeftChild = Root.LeftChild;
         replacement.Parent = null;
+        replacement.LeftChild.Parent = replacement;
+        replacement.RightChild.Parent = replacement;
+        Root = replacement;
     }
 
-    private void DeleteTwoChildsNode(BSTNode<T> nodeToDelete) {
+    private void DeleteTwoChildNode(BSTNode<T> nodeToDelete) {
         BSTNode<T> replacement = FindReplacementForDeletable(Root);
         replacement.LeftChild = nodeToDelete.LeftChild;
         replacement.Parent = nodeToDelete.Parent;
         replacement.RightChild = nodeToDelete.RightChild;
+        if (nodeToDelete.Parent.RightChild == nodeToDelete) {
+            nodeToDelete.Parent.RightChild = replacement;
+        } else {
+            nodeToDelete.Parent.LeftChild = replacement;
+        }
+        nodeToDelete.LeftChild.Parent = replacement;
+        nodeToDelete.RightChild.Parent = replacement;
     }
 
     public BSTNode<T> FindReplacementForDeletable(BSTNode<T> node) {
@@ -116,6 +126,12 @@ class BST<T> {
             curNode = curNode.LeftChild;
         }
         if (curNode.RightChild == null) {
+            if (curNode.Parent.LeftChild == curNode) {
+                curNode.Parent.LeftChild = null;
+            }
+            if (curNode.Parent.RightChild == curNode) {
+                curNode.Parent.RightChild = null;
+            }
             return curNode;
         }
         if (curNode.Parent.LeftChild == curNode) {
