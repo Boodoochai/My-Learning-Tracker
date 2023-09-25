@@ -13,6 +13,18 @@ class BSTNode<T> {
         RightChild = null;
     }
 
+    class BSTFind<T> {
+        public BSTNode<T> Node;
+
+        public boolean NodeHasKey;
+
+        public boolean ToLeft;
+
+        public BSTFind() {
+            Node = null;
+        }
+    }
+
     public int Count() {
         int ans = 1;
         if (LeftChild != null) {
@@ -71,18 +83,6 @@ class BSTNode<T> {
             return this;
         }
         return LeftChild.FindMin();
-    }
-}
-
-class BSTFind<T> {
-    public BSTNode<T> Node;
-
-    public boolean NodeHasKey;
-
-    public boolean ToLeft;
-
-    public BSTFind() {
-        Node = null;
     }
 }
 
@@ -149,21 +149,19 @@ class BST<T> {
         if (nodeToDelete.LeftChild == null) {
             if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
                 nodeToDelete.Parent.LeftChild = nodeToDelete.RightChild;
-                nodeToDelete.RightChild.Parent = nodeToDelete.Parent;
             } else {
                 nodeToDelete.Parent.RightChild = nodeToDelete.RightChild;
-                nodeToDelete.RightChild.Parent = nodeToDelete.Parent;
             }
+            nodeToDelete.RightChild.Parent = nodeToDelete.Parent;
             return true;
         }
         if (nodeToDelete.RightChild == null) {
             if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
                 nodeToDelete.Parent.LeftChild = nodeToDelete.LeftChild;
-                nodeToDelete.LeftChild.Parent = nodeToDelete.Parent;
             } else {
                 nodeToDelete.Parent.RightChild = nodeToDelete.LeftChild;
-                nodeToDelete.LeftChild.Parent = nodeToDelete.Parent;
             }
+            nodeToDelete.LeftChild.Parent = nodeToDelete.Parent;
             return true;
         }
         DeleteTwoChildNode(f.Node);
@@ -195,7 +193,7 @@ class BST<T> {
     }
 
     private void DeleteTwoChildNode(BSTNode<T> nodeToDelete) {
-        BSTNode<T> replacement = FindReplacementForDeletable(Root);
+        BSTNode<T> replacement = FindReplacementForDeletable(nodeToDelete);
         replacement.LeftChild = nodeToDelete.LeftChild;
         replacement.Parent = nodeToDelete.Parent;
         replacement.RightChild = nodeToDelete.RightChild;
