@@ -13,18 +13,6 @@ class BSTNode<T> {
         RightChild = null;
     }
 
-    class BSTFind<T> {
-        public BSTNode<T> Node;
-
-        public boolean NodeHasKey;
-
-        public boolean ToLeft;
-
-        public BSTFind() {
-            Node = null;
-        }
-    }
-
     public int Count() {
         int ans = 1;
         if (LeftChild != null) {
@@ -83,6 +71,18 @@ class BSTNode<T> {
             return this;
         }
         return LeftChild.FindMin();
+    }
+}
+
+class BSTFind<T> {
+    public BSTNode<T> Node;
+
+    public boolean NodeHasKey;
+
+    public boolean ToLeft;
+
+    public BSTFind() {
+        Node = null;
     }
 }
 
