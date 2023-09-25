@@ -415,4 +415,100 @@ public class DeleteNodeByKeyTest {
         Assertions.assertNull(ans8);
         Assertions.assertNull(tree.Root);
     }
+
+    @Test
+    void FromNormalTree12() {
+        BST<Integer> tree = new BST<Integer>(null);
+
+        tree.AddKeyValue(4, 4);
+        tree.AddKeyValue(8, 8);
+        tree.AddKeyValue(1, 1);
+        tree.AddKeyValue(2, 2);
+        tree.AddKeyValue(3, 3);
+        tree.AddKeyValue(7, 7);
+        tree.AddKeyValue(5, 5);
+        tree.AddKeyValue(6, 6);
+
+        boolean res7 = tree.DeleteNodeByKey(4);
+        Assertions.assertEquals(7, tree.Count());
+        boolean res4 = tree.DeleteNodeByKey(7);
+        Assertions.assertEquals(6, tree.Count());
+        boolean res8 = tree.DeleteNodeByKey(8);
+        Assertions.assertEquals(5, tree.Count());
+        boolean res3 = tree.DeleteNodeByKey(3);
+        Assertions.assertEquals(4, tree.Count());
+
+        BSTFind<Integer> ans1 = tree.FindNodeByKey(1);
+        BSTFind<Integer> ans2 = tree.FindNodeByKey(2);
+        BSTFind<Integer> ans3 = tree.FindNodeByKey(3);
+        BSTFind<Integer> ans4 = tree.FindNodeByKey(4);
+        BSTFind<Integer> ans5 = tree.FindNodeByKey(5);
+        BSTFind<Integer> ans6 = tree.FindNodeByKey(6);
+        BSTFind<Integer> ans7 = tree.FindNodeByKey(7);
+        BSTFind<Integer> ans8 = tree.FindNodeByKey(8);
+
+        Assertions.assertTrue(res3);
+        Assertions.assertTrue(res4);
+        Assertions.assertTrue(res7);
+        Assertions.assertTrue(res8);
+        Assertions.assertEquals(4, tree.Count());
+        Assertions.assertTrue(ans1.NodeHasKey);
+        Assertions.assertTrue(ans2.NodeHasKey);
+        Assertions.assertFalse(ans3.NodeHasKey);
+        Assertions.assertFalse(ans4.NodeHasKey);
+
+        Assertions.assertTrue(ans5.NodeHasKey);
+        Assertions.assertTrue(ans6.NodeHasKey);
+        Assertions.assertFalse(ans7.NodeHasKey);
+        Assertions.assertFalse(ans8.NodeHasKey);
+        Assertions.assertNotNull(tree.Root);
+    }
+
+    @Test
+    void FromNormalTree13() {
+        BST<Integer> tree = new BST<Integer>(null);
+
+        tree.AddKeyValue(8, 8);
+        tree.AddKeyValue(1, 1);
+        tree.AddKeyValue(4, 4);
+        tree.AddKeyValue(7, 7);
+        tree.AddKeyValue(5, 5);
+        tree.AddKeyValue(2, 2);
+        tree.AddKeyValue(3, 3);
+        tree.AddKeyValue(6, 6);
+
+        boolean res4 = tree.DeleteNodeByKey(4);
+        Assertions.assertEquals(7, tree.Count());
+        boolean res7 = tree.DeleteNodeByKey(7);
+        Assertions.assertEquals(6, tree.Count());
+        boolean res8 = tree.DeleteNodeByKey(8);
+        Assertions.assertEquals(5, tree.Count());
+        boolean res3 = tree.DeleteNodeByKey(3);
+        Assertions.assertEquals(4, tree.Count());
+
+        BSTFind<Integer> ans1 = tree.FindNodeByKey(1);
+        BSTFind<Integer> ans2 = tree.FindNodeByKey(2);
+        BSTFind<Integer> ans3 = tree.FindNodeByKey(3);
+        BSTFind<Integer> ans4 = tree.FindNodeByKey(4);
+        BSTFind<Integer> ans5 = tree.FindNodeByKey(5);
+        BSTFind<Integer> ans6 = tree.FindNodeByKey(6);
+        BSTFind<Integer> ans7 = tree.FindNodeByKey(7);
+        BSTFind<Integer> ans8 = tree.FindNodeByKey(8);
+
+        Assertions.assertTrue(res3);
+        Assertions.assertTrue(res4);
+        Assertions.assertTrue(res7);
+        Assertions.assertTrue(res8);
+        Assertions.assertEquals(4, tree.Count());
+        Assertions.assertTrue(ans1.NodeHasKey);
+        Assertions.assertTrue(ans2.NodeHasKey);
+        Assertions.assertFalse(ans3.NodeHasKey);
+        Assertions.assertFalse(ans4.NodeHasKey);
+
+        Assertions.assertTrue(ans5.NodeHasKey);
+        Assertions.assertTrue(ans6.NodeHasKey);
+        Assertions.assertFalse(ans7.NodeHasKey);
+        Assertions.assertFalse(ans8.NodeHasKey);
+        Assertions.assertNotNull(tree.Root);
+    }
 }
