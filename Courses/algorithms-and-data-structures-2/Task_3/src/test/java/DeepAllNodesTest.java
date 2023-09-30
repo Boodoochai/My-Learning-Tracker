@@ -109,7 +109,7 @@ public class DeepAllNodesTest {
         tree.AddKeyValue(1, 1);
         tree.AddKeyValue(3, 3);
 
-        List<BSTNode> ans = tree.DeepAllNodes(0);
+        List<BSTNode> ans = tree.DeepAllNodes(1);
 
         Assertions.assertEquals(3, ans.size());
         Assertions.assertEquals(1, ans.get(0).NodeValue);
@@ -124,7 +124,7 @@ public class DeepAllNodesTest {
         tree.AddKeyValue(1, 1);
         tree.AddKeyValue(3, 3);
 
-        List<BSTNode> ans = tree.DeepAllNodes(0);
+        List<BSTNode> ans = tree.DeepAllNodes(2);
 
         Assertions.assertEquals(3, ans.size());
         Assertions.assertEquals(2, ans.get(0).NodeValue);

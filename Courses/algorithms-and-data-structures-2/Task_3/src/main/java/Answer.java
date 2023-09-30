@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class BSTNode<T> {
     public int NodeKey;
@@ -74,6 +76,38 @@ class BSTNode<T> {
         }
         return LeftChild.FindMin();
     }
+
+    public void DeepAllNodes(ArrayList<BSTNode> result, int orderType) {
+        switch (orderType) {
+            case 0:
+                if (LeftChild != null) {
+                    LeftChild.DeepAllNodes(result, orderType);
+                }
+                result.add(this);
+                if (RightChild != null) {
+                    RightChild.DeepAllNodes(result, orderType);
+                }
+                break;
+            case 1:
+                if (LeftChild != null) {
+                    LeftChild.DeepAllNodes(result, orderType);
+                }
+                if (RightChild != null) {
+                    RightChild.DeepAllNodes(result, orderType);
+                }
+                result.add(this);
+                break;
+            case 2:
+                result.add(this);
+                if (LeftChild != null) {
+                    LeftChild.DeepAllNodes(result, orderType);
+                }
+                if (RightChild != null) {
+                    RightChild.DeepAllNodes(result, orderType);
+                }
+                break;
+        }
+    }
 }
 
 class BSTFind<T> {
@@ -97,18 +131,37 @@ class BST<T> {
 
     // BFS
     public ArrayList<BSTNode> WideAllNodes() {
-        // TODO
-        return null;
+        ArrayList<BSTNode> nodes = new ArrayList<>();
+        if (Root == null) {
+            return nodes;
+        }
+        Queue<BSTNode<T>> que = new LinkedList<>();
+        que.add(Root);
+        while (!que.isEmpty()) {
+            BSTNode<T> currentNode = que.poll();
+            nodes.add(currentNode);
+            if (currentNode.LeftChild != null) {
+                que.add(currentNode.LeftChild);
+            }
+            if (currentNode.RightChild != null) {
+                que.add(currentNode.RightChild);
+            }
+        }
+        return nodes;
     }
 
     /*  DFS
-    *   orderType == 0 -> in-order
-    *   orderType == 1 -> post-order
-    *   orderType == 2 -> pre-order
-    */
+     *   orderType == 0 -> in-order
+     *   orderType == 1 -> post-order
+     *   orderType == 2 -> pre-order
+     */
     public ArrayList<BSTNode> DeepAllNodes(int orderType) {
-        // TODO
-        return null;
+        ArrayList<BSTNode> result = new ArrayList<>();
+        if (Root == null) {
+            return result;
+        }
+        Root.DeepAllNodes(result, orderType);
+        return result;
     }
 
     public BSTFind<T> FindNodeByKey(int key) {
