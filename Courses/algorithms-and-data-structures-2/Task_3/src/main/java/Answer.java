@@ -108,6 +108,18 @@ class BSTNode<T> {
                 break;
         }
     }
+
+    public void InverseTree() {
+        BSTNode<T> tmp = RightChild;
+        RightChild = LeftChild;
+        LeftChild = tmp;
+        if (LeftChild != null) {
+            LeftChild.InverseTree();
+        }
+        if (RightChild != null) {
+            RightChild.InverseTree();
+        }
+    }
 }
 
 class BSTFind<T> {
@@ -162,6 +174,13 @@ class BST<T> {
         }
         Root.DeepAllNodes(result, orderType);
         return result;
+    }
+
+    public void Inverse() {
+        if (Root == null) {
+            return;
+        }
+        Root.InverseTree();
     }
 
     public BSTFind<T> FindNodeByKey(int key) {
