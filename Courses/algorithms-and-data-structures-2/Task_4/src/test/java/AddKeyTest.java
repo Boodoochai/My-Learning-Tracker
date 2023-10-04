@@ -3,6 +3,55 @@ import org.junit.jupiter.api.Test;
 
 public class AddKeyTest {
     @Test
+    public void TreeOverflowZeroDepth() {
+        aBST tree = new aBST(0);
+
+        int res2 = tree.AddKey(3);
+        int res1 = tree.AddKey(6);
+
+        Assertions.assertEquals(-1, res1);
+    }
+
+    @Test
+    public void TreeOverflowOneDepth() {
+        aBST tree = new aBST(1);
+
+        for (int i = 0; i < 3; i++) {
+            tree.AddKey(i);
+        }
+
+        int res2 = tree.AddKey(2);
+
+        Assertions.assertEquals(-1, res2);
+    }
+
+    @Test
+    public void TreeOverflowTwoDepth() {
+        aBST tree = new aBST(2);
+
+        for (int i = 0; i < 7; i++) {
+            tree.AddKey(i);
+        }
+
+        int res1 = tree.AddKey(42);
+
+        Assertions.assertEquals(-1, res1);
+    }
+
+    @Test
+    public void TreeOverflowThreeDepth() {
+        aBST tree = new aBST(3);
+
+        for (int i = 0; i < 15; i++) {
+            tree.AddKey(i);
+        }
+
+        int res1 = tree.AddKey(42);
+
+        Assertions.assertEquals(-1, res1);
+    }
+
+    @Test
     public void EmptyTree() {
         aBST tree = new aBST(10);
 

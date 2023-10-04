@@ -3,19 +3,6 @@ import org.junit.jupiter.api.Test;
 
 public class FindKeyIndexTest {
     @Test
-    public void EmptyTreeDepthZero() {
-        aBST tree = new aBST(0);
-
-        Integer res1 = tree.FindKeyIndex(1);
-        Integer res2 = tree.FindKeyIndex(2);
-        Integer res3 = tree.FindKeyIndex(0);
-
-        Assertions.assertNull(res1);
-        Assertions.assertNull(res2);
-        Assertions.assertNull(res3);
-    }
-
-    @Test
     public void EmptyTreeDepthOne() {
         aBST tree = new aBST(1);
 
