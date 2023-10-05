@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="668cd776-18c9-4bff-b555-e9f6e0d43c28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/aBST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aBST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AddKeyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AddKeyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FindKeyIndexTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FindKeyIndexTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,20 +60,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/debil/Developing/My-Learning-Tracker/Courses/algorithms-and-data-structures-2/Task_4",
-    "onboarding.tips.debug.path": "/home/debil/Universuty/IntroductionToAlgorithms/Task_4/src/main/java/org/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/debil/Developing/My-Learning-Tracker/Courses/algorithms-and-data-structures-2/Task_4&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/debil/Universuty/IntroductionToAlgorithms/Task_4/src/main/java/org/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Gradle.Tests in 'Task_4'">
+}</component>
+  <component name="RunManager" selected="Gradle.AddKeyTest.TreeOverflowThreeDepth">
+    <configuration name="AddKeyTest.TreeOverflowThreeDepth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;AddKeyTest.TreeOverflowThreeDepth&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
     <configuration name="FindKeyIndexTest.EmptyTreeDepthOne" type="GradleRunConfiguration" factoryName="Gradle" temporary="true" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -147,11 +168,13 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Task_4 [test]" />
+      <item itemvalue="Gradle.AddKeyTest.TreeOverflowThreeDepth" />
       <item itemvalue="Gradle.Tests in 'Task_4'" />
       <item itemvalue="Gradle.FindKeyIndexTest.EmptyTreeDepthOne" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AddKeyTest.TreeOverflowThreeDepth" />
         <item itemvalue="Gradle.Tests in 'Task_4'" />
         <item itemvalue="Gradle.FindKeyIndexTest.EmptyTreeDepthOne" />
       </list>
@@ -180,6 +203,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/Main.java</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/AddKeyTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/AddKeyTest.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/aBST.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -42,9 +42,36 @@ public class AddKeyTest {
     public void TreeOverflowThreeDepth() {
         aBST tree = new aBST(3);
 
-        for (int i = 0; i < 15; i++) {
-            tree.AddKey(i);
-        }
+        int res = tree.AddKey(10);
+        Assertions.assertEquals(0, res);
+        res = tree.AddKey(5);
+        Assertions.assertEquals(1, res);
+        res = tree.AddKey(2);
+        Assertions.assertEquals(3, res);
+        res = tree.AddKey(1);
+        Assertions.assertEquals(7, res);
+        res = tree.AddKey(3);
+        Assertions.assertEquals(8, res);
+        res = tree.AddKey(7);
+        Assertions.assertEquals(4, res);
+        res = tree.AddKey(6);
+        Assertions.assertEquals(9, res);
+        res = tree.AddKey(9);
+        Assertions.assertEquals(10, res);
+        res = tree.AddKey(20);
+        Assertions.assertEquals(2, res);
+        res = tree.AddKey(15);
+        Assertions.assertEquals(5, res);
+        res = tree.AddKey(14);
+        Assertions.assertEquals(11, res);
+        res = tree.AddKey(16);
+        Assertions.assertEquals(12, res);
+        res = tree.AddKey(25);
+        Assertions.assertEquals(6, res);
+        res = tree.AddKey(24);
+        Assertions.assertEquals(13, res);
+        res = tree.AddKey(26);
+        Assertions.assertEquals(14, res);
 
         int res1 = tree.AddKey(42);
 
