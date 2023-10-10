@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class AlgorithmsDataStructures2 {
     public static int[] GenerateBBSTArray(int[] a) {
         Arrays.sort(a);
-        int[] tree = new int[a.length*2];
+        int[] tree = new int[a.length];
         GenerateBBSTArrayRec(a, 0, a.length, tree, 0);
         return tree;
     }
