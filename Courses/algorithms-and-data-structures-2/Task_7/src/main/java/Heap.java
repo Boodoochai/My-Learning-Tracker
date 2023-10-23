@@ -13,7 +13,6 @@ class Heap {
         for (int x : a) {
             this.Add(x);
         }
-        elementsNum = a.length;
     }
 
     public int GetMax() {
@@ -28,12 +27,12 @@ class Heap {
     }
 
     public boolean Add(int key) {
-        if (elementsNum == HeapArray.length) {
+        if (HeapArray == null || elementsNum == HeapArray.length) {
             return false;
         }
         elementsNum += 1;
-        HeapArray[elementsNum-2] = key;
-        HeapifyUp(elementsNum-2);
+        HeapArray[elementsNum-1] = key;
+        HeapifyUp(elementsNum-1);
         return true;
     }
 
@@ -47,7 +46,7 @@ class Heap {
     }
 
     private void HeapifyDown(int ind) {
-        if (HeapArray[ind] > HeapArray[ind*2+1] && HeapArray[ind] > HeapArray[ind*2+2]) {
+        if ((ind*2+1 >= elementsNum || HeapArray[ind] > HeapArray[ind*2+1]) && (ind*2+2 > elementsNum-1 || HeapArray[ind] > HeapArray[ind*2+2])) {
             return;
         }
         if (HeapArray[ind*2+1] > HeapArray[ind*2+2]) {
