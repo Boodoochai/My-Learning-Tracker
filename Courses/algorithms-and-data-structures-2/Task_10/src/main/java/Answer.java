@@ -52,6 +52,9 @@ class SimpleGraph {
 
         for (int i = 0; i < max_vertex; i++) {
             if (m_adjacency[currentVertex][i] != 0) {
+                if (vertex[i].Hit) {
+                    continue;
+                }
                 if (Dfs(i, endVertex, path)) {
                     return true;
                 }

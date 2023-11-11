@@ -67,4 +67,40 @@ public class DepthFirstSearch {
         Assertions.assertEquals(3, path.get(2).Value);
         Assertions.assertEquals(4, path.get(3).Value);
     }
+
+    @Test
+    public void FourEdgePath() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(3, 0);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 2);
+
+        Assertions.assertEquals(3, path.size());
+    }
+
+    @Test
+    public void FourEdgePath2() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(0, 2);
+        graph.AddEdge(0, 3);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(1, 3);
+        graph.AddEdge(2, 3);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 2);
+
+        Assertions.assertEquals(2, path.size());
+    }
 }
