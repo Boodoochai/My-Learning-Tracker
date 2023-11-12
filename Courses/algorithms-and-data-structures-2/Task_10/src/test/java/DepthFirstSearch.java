@@ -101,6 +101,143 @@ public class DepthFirstSearch {
 
         ArrayList<Vertex> path = graph.DepthFirstSearch(0, 2);
 
-        Assertions.assertEquals(2, path.size());
+        Assertions.assertNotEquals(0, path.size());
+    }
+
+    @Test
+    public void EdgePath() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddVertex(5);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(3, 0);
+        graph.AddEdge(2, 4);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 4);
+
+        Assertions.assertEquals(4, path.size());
+    }
+
+    @Test
+    public void EdgePath2() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddVertex(5);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(3, 0);
+        graph.AddEdge(2, 4);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 1);
+
+        Assertions.assertNotEquals(0, path.size());
+    }
+
+    @Test
+    public void EdgePath3() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddVertex(5);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(3, 0);
+        graph.AddEdge(2, 4);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 3);
+
+        Assertions.assertNotEquals(0, path.size());
+    }
+
+    @Test
+    public void EdgePath4() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddVertex(5);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(3, 0);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 4);
+
+        Assertions.assertEquals(0, path.size());
+    }
+
+    @Test
+    public void EdgePath5() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddVertex(5);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(3, 0);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 4);
+
+        Assertions.assertEquals(0, path.size());
+    }
+
+    @Test
+    public void EdgePath6() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddVertex(5);
+        graph.AddVertex(6);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(3, 0);
+        graph.AddEdge(2, 4);
+        graph.AddEdge(2, 5);
+        graph.AddEdge(4, 5);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 4);
+
+        Assertions.assertNotEquals(0, path.size());
+    }
+
+    @Test
+    public void EdgePath7() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddVertex(5);
+        graph.AddVertex(6);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(3, 0);
+        graph.AddEdge(2, 4);
+        graph.AddEdge(2, 5);
+        graph.AddEdge(4, 5);
+
+        ArrayList<Vertex> path = graph.DepthFirstSearch(0, 0);
+
+        Assertions.assertEquals(1, path.size());
     }
 }

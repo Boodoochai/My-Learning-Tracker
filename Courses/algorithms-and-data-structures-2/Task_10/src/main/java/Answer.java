@@ -31,12 +31,18 @@ class SimpleGraph {
 
         Stack<Vertex> path = new Stack<>();
 
-        Dfs(VTo, VFrom, path);
+        vertex[VFrom].Hit = true;
+        Dfs(VFrom, VTo, path);
 
         ArrayList<Vertex> arrayPath = new ArrayList<>();
+        Stack<Vertex> reversedPath = new Stack<>();
 
         while (!path.isEmpty()) {
-            arrayPath.add(path.pop());
+            reversedPath.add(path.pop());
+        }
+
+        while (!reversedPath.isEmpty()) {
+            arrayPath.add(reversedPath.pop());
         }
 
         return arrayPath;
@@ -48,13 +54,9 @@ class SimpleGraph {
             return true;
         }
 
-        vertex[currentVertex].Hit = true;
-
         for (int i = 0; i < max_vertex; i++) {
-            if (m_adjacency[currentVertex][i] != 0) {
-                if (vertex[i].Hit) {
-                    continue;
-                }
+            if (m_adjacency[currentVertex][i] != 0 && !vertex[i].Hit) {
+                vertex[i].Hit = true;
                 if (Dfs(i, endVertex, path)) {
                     return true;
                 }
