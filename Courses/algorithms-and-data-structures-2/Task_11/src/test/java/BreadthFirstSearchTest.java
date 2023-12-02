@@ -240,4 +240,26 @@ public class BreadthFirstSearchTest {
 
         Assertions.assertEquals(1, path.size());
     }
+
+    @Test
+    public void EdgePath8() {
+        SimpleGraph graph = new SimpleGraph(10);
+        graph.AddVertex(1);
+        graph.AddVertex(2);
+        graph.AddVertex(3);
+        graph.AddVertex(4);
+        graph.AddVertex(5);
+        graph.AddEdge(0, 1);
+        graph.AddEdge(1, 2);
+        graph.AddEdge(2, 3);
+        graph.AddEdge(0, 4);
+        graph.AddEdge(4, 3);
+
+        ArrayList<Vertex> path = graph.BreadthFirstSearch(0, 3);
+
+        Assertions.assertEquals(3, path.size());
+        Assertions.assertEquals(1, path.get(0).Value);
+        Assertions.assertEquals(5, path.get(1).Value);
+        Assertions.assertEquals(4, path.get(2).Value);
+    }
 }

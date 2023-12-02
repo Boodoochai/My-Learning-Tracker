@@ -21,6 +21,40 @@ class SimpleGraph {
         vertex = new Vertex[size];
     }
 
+    public ArrayList<Vertex> WeakVertices()
+    {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(0);
+        int[] distance = new int[max_vertex];
+        Arrays.fill(distance, -1);
+        distance[0] = 0;
+        ArrayList<Vertex> weak = new ArrayList<>();
+
+        while (!queue.isEmpty()) {
+            int x = queue.poll();
+            boolean flag = false;
+            for (int i = 0; i < max_vertex; i++) {
+                for (int j = 0; j < max_vertex; j++) {
+                    if (m_adjacency[x][i] != 0 && m_adjacency[x][j] != 0 && (m_adjacency[i][j] != 0 || m_adjacency[j][i] != 0)) {
+                        flag = true;
+                    }
+                }
+            }
+            if (!flag) {
+                weak.add(vertex[x]);
+            }
+            for (int i = 0; i < max_vertex; i++) {
+                if (m_adjacency[x][i] != 0 && distance[i] == -1) {
+                    queue.add(i);
+                    distance[i] = distance[x] + 1;
+
+                }
+            }
+        }
+
+        return weak;
+    }
+
     public ArrayList<Vertex> BreadthFirstSearch(int VFrom, int VTo)
     {
         Queue<Integer> queue = new LinkedList<>();
