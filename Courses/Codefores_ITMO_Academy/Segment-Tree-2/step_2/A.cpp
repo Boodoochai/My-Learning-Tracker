@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 #define int long long
@@ -12,8 +11,8 @@ struct segtree
 
     segtree(signed size)
     {
-        this->data = vector<int>(size * 4, 0);
-        this->added = vector<int>(size * 4, 0);
+        this->data = vector<int>(size * 5, 0);
+        this->added = vector<int>(size * 5, 0);
         this->size = size;
     }
 
@@ -21,12 +20,12 @@ struct segtree
     {
         if (que_l > que_r)
         {
-            return 200000000000;
+            return 1000000000000000000;
         }
         push_me(node);
         if (que_l == l && que_r == r)
         {
-            return added[node] + data[node];
+            return data[node];
         }
         int m = (l + r) / 2;
         int left = get_min(que_l, min(que_r, m), node * 2, l, m);
@@ -36,13 +35,14 @@ struct segtree
 
     void push_me(int node)
     {
-        data[node] += added[node];
         if (node * 2 < data.size())
         {
+            data[node * 2] += added[node];
             added[node * 2] += added[node];
+            data[node * 2 + 1] += added[node];
             added[node * 2 + 1] += added[node];
+            added[node] = 0;
         }
-        added[node] = 0;
     }
 
     void add(int val, int que_l, int que_r, int node, int l, int r)
@@ -55,11 +55,13 @@ struct segtree
         if (que_l == l && que_r == r)
         {
             added[node] += val;
+            data[node] += val;
             return;
         }
         int m = (l + r) / 2;
         add(val, que_l, min(que_r, m), node * 2, l, m);
         add(val, max(m + 1, que_l), que_r, node * 2 + 1, m + 1, r);
+        data[node] = min(data[node * 2], data[node * 2 + 1]);
     }
 };
 
@@ -84,7 +86,7 @@ signed main()
             int l, r;
             cin >> l >> r;
             l += 1;
-            cout << tree.get_min(l, r, 1, 1, tree.size) << endl;
+            cout << tree.get_min(l, r, 1, 1, tree.size) << " " << endl;
         }
     }
 }
