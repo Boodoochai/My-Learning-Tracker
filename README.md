@@ -42,7 +42,7 @@ A log of my web development skills, learning, resources, interests and everythin
 
 [//]: # (Reference links to tutors)
 [Сергей Бобровский]: https://vk.com/lambda_brain
-
+<!---
 ----
 
 ## Web Development Checklist
@@ -73,3 +73,4 @@ It is an almost exact copy of [Ginny Fahs'](https://twitter.com/ginnyfahs) ["Thi
 * [ ] Contribute to open source
 * [ ] Get paid to code
 * [ ] When people ask what you do, respond saying you’re a developer :)
+-->
